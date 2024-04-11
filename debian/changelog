@@ -1,3 +1,10 @@
+firefox-esr-mobile-config (4.3.1-1) unstable; urgency=medium
+
+  * Team Upload
+  * New upstream release
+
+ -- Pirate Praveen <praveen@debian.org>  Thu, 11 Apr 2024 18:52:40 +0530
+
 firefox-esr-mobile-config (4.3.0-1) unstable; urgency=medium
 
   * New upstream release

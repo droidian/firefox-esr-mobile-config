@@ -6,14 +6,14 @@ Upstream is a bit extreme in removing all search engines but one. Leave
 that choice to the user. Also, don't install ublock through global
 policy as Mobian installs it by default.
 ---
- src/policies.json | 110 ------------------------------------------------------
- 1 file changed, 110 deletions(-)
+ src/policies.json | 109 ------------------------------------------------------
+ 1 file changed, 109 deletions(-)
 
 diff --git a/src/policies.json b/src/policies.json
-index dd5f9d9..4676ca4 100644
+index ee6fe68..4676ca4 100644
 --- a/src/policies.json
 +++ b/src/policies.json
-@@ -23,122 +23,12 @@
+@@ -23,121 +23,12 @@
              "Locked": false
          },
  
@@ -55,7 +55,6 @@ index dd5f9d9..4676ca4 100644
 -                "GMX Search",
 -                "GMX Shopping",
 -                "GMX Suche",
--                "Google",
 -                "Gule sider",
 -                "Heureka",
 -                "Hotline",

@@ -15,7 +15,7 @@ Package: firefox-esr-mobile-config
 Architecture: all
 Depends:
  ${misc:Depends},
- firefox-esr,
+ firefox-esr (>= 115),
 Description: Default mobile-friendly configuration for Firefox ESR
  This package provides a set of configuration files aimed at making Firefox ESR
  more mobile-friendly. It provides:

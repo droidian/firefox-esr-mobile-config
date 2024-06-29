@@ -8,7 +8,7 @@ Forwarded: not-needed
  1 file changed, 60 insertions(+)
 
 diff --git a/src/mobile-config-autoconfig.js b/src/mobile-config-autoconfig.js
-index 5693847..ba7c3aa 100644
+index 3d82eef..511f166 100644
 --- a/src/mobile-config-autoconfig.js
 +++ b/src/mobile-config-autoconfig.js
 @@ -315,6 +315,66 @@ function set_default_prefs() {

@@ -1,23 +1,12 @@
-firefox-esr-mobile-config (4.3.2-1~1.gbpe548ef) UNRELEASED; urgency=medium
+firefox-esr-mobile-config (4.3.2-1) experimental; urgency=medium
 
-  ** SNAPSHOT build @e548ef6b4cc1931e275a21d8c170cd3e38306c61 **
+  * Team Upload
+  * Upload to experimental
+  * Rediff patches
+  * Add upstream metainfo.
+    This makes repository setup via `gbp clone --add-upstream-vcs` simpler.
 
-  [ Peter ]
-  * policies.json: No longer hard-remove Google (MR 49)
-    No longer hard remove Google from Firefox ESR, so it can be picked
-    as default if people want to/have to, e.g., due to ddg being blocked
-    in some regions.
-    https://cast.postmarketos.org/episode/39-Interview-magdesign/
-    inspired this.
-  * tabmenu.css: Fix private browsing mode (MR 51)
-    This cuts down the private browsing indicator to a minimum
-    by hiding the text and removing some padding.
-  * appMenu.css: Adjust appMenu.css for Firefox 127 (MR 50)
-
-  [ Oliver Smith ]
-  * README: link to user0's Mobile-Friendly-Firefox
-
- -- Guido Günther <agx@sigxcpu.org>  Sat, 29 Jun 2024 07:34:39 +0200
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 29 Jun 2024 07:43:24 +0200
 
 firefox-esr-mobile-config (4.3.1-1) unstable; urgency=medium
 

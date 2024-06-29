@@ -9,11 +9,12 @@
     #titlebar {
         padding-right: 30px;
     }
-    hbox.private-browsing-indicator {
-        position: fixed !important;
-        right: 0px;
-        bottom: 50px;
-        display: block;
+
+    /* Fix private browsing mode for current Firefox >= 115 */
+    #private-browsing-indicator-with-label {
+        margin-inline: 0px !important;
+        width: 0px;
+        font-size: 0;
     }
 
     /* Hide firefox-view tab, as none of the options in about:config hides it on FF 123 */

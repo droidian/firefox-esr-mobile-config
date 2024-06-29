@@ -24,6 +24,7 @@
     .panel-viewstack {
         height: 100vh !important;
         max-height: calc(100vh - 100px) !important;
+        max-width: calc(100vw - 10px);
     }
 
     /* Allow extensions to use full popup */

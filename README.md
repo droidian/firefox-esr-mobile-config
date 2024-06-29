@@ -114,6 +114,7 @@ $ tail -F $(find ~/.mozilla -name mobile-config-firefox.log)
   grep)
 
 ## Additional resources
+* [Mobile-Friendly-Firefox](https://codeberg.org/user0/Mobile-Friendly-Firefox) by user0
 * [How to use the Firefox Browser Toolbox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox)
 * [firefox-csshacks](https://github.com/MrOtherGuy/firefox-csshacks/)
 * [FirefoxCSS subreddit](https://www.reddit.com/r/FirefoxCSS/)

@@ -7,13 +7,13 @@
      * height. This is due to the position="bottomcenter topright" attribute in
      * the HTML, which we can't override via CSS. */
     #appMenu-popup {
-        margin-top: -390px !important;
-        height: 310px;
-        max-height: 310px;
+        margin-top: -410px !important;
+        height: 330px;
+        max-height: 330px;
     }
-    #appMenu-protonMainView vbox.panel-subview-body {
-        height: 300px !important;
-        max-height: 300px !important;
+    #appMenu-protonMainView vbox.panel-subview-body, #appMenu-mainView vbox.panel-subview-body {
+        height: 330px !important;
+        max-height: 330px !important;
     }
     #appMenu-multiView box.panel-viewstack:first-child {
         /* Use the whole space in the menu, instead of slowly increasing the
@@ -43,7 +43,8 @@
     #appMenu-fxa-status2, /* FF login */
     #appMenu-fxa-separator, /* FF login */
     #appMenu-new-window-button2,
-    #appMenu-protonMainView toolbarseparator, /* all separators */
+    #appMenu-protonMainView toolbarseparator, /* all separators, FF <= 126 */
+    #appMenu-mainView toolbarseparator, /* all separators, FF 127++ */
     #appMenu-save-file-button2, /* Save file can be done from Print too */
     #appMenu-fullscreen-button2,
     #appMenu-passwords-button, /* accessible from settings */

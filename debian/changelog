@@ -1,3 +1,13 @@
+firefox-esr-mobile-config (4.3.2-2) experimental; urgency=medium
+
+  * Team Upload
+  * Upload to unstable
+  * d/control: Specify a minimum firefox-esr version.
+    This version works well with 115 and later and causes some regression
+    in private browsing on 102 and older so let's specify that.
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 29 Jun 2024 14:00:24 +0200
+
 firefox-esr-mobile-config (4.3.2-1) experimental; urgency=medium
 
   * Team Upload

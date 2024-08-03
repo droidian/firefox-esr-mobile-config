@@ -35,3 +35,6 @@ pref('toolkit.cosmeticAnimations.enabled', false);
 
 // Disable download animations, save CPU
 pref('browser.download.animateNotifications', false);
+
+// Enable touch density
+pref('browser.uidensity', 2);

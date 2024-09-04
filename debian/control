@@ -1,4 +1,4 @@
-Source: firefox-esr-mobile-config
+Source: firefox-mobile-config
 Section: x11
 Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
 Uploaders: Jarrah Gosbell <debian@undef.tools>,
@@ -9,15 +9,22 @@ Homepage: https://docs.postmarketos.org/mobile-config-firefox/main/index.html
 Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/firefox-esr-mobile-config
 Vcs-Git: https://salsa.debian.org/DebianOnMobile-team/firefox-esr-mobile-config.git
 
-Package: firefox-esr-mobile-config
+Package: firefox-mobile-config
 Architecture: all
 Depends:
- firefox-esr (>= 115),
-Provides: librewolf-mobile-config (=${source:Version})
+ ${misc:Depends},
+ firefox (>= 127) | firefox-esr (>=115),
+Conflicts:
 # debian-edu-config also provides a policies.json for Firefox
-Conflicts: debian-edu-config
-Description: Default mobile-friendly configuration for Firefox ESR
- This package provides a set of configuration files aimed at making Firefox ESR
+ debian-edu-config,
+ firefox-esr-mobile-config
+Replaces:
+ firefox-esr-mobile-config
+Provides:
+ firefox-esr-mobile-config,
+ librewolf-mobile-config (=${source:Version})
+Description: Default mobile-friendly configuration for Firefox
+ This package provides a set of configuration files aimed at making Firefox
  more mobile-friendly. It provides:
   * default preferences values
   * custom userChrome.css

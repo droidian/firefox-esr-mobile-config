@@ -51,7 +51,8 @@
     #urlbar[focused] #tracking-protection-icon-container,
     /* #urlbar-input */
     #urlbar[focused] #reader-mode-button,
-    #urlbar[focused] #page-action-buttons {
+    #urlbar[focused] #page-action-buttons,
+    #urlbar[focused] .urlbar-go-button {
         display: none;
     }
 

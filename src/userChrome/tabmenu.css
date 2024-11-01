@@ -30,10 +30,23 @@
         border-inline-start: 0 !important;
     }
 
-    /* Rotate the arrow on the "all tabs" button to point upwards, since the
-     * tabs and searchbar were moved to the bottom. */
-    #alltabs-button {
-        transform: rotate(180deg) !important;
+    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+        /* Rotate the arrow on the "all tabs" button to point upwards, since the
+         * tabs and searchbar were moved to the bottom. */
+        #alltabs-button {
+            transform: rotate(180deg) !important;
+        }
+
+        /* Similar hack to what's in appMenu.css to properly spawn the "all tabs"
+         * popup above the navigation menu */
+        #customizationui-widget-panel {
+            /* Further up than appmenu, because the "all tabs" button that spawns
+             * this menu is above the hamburger button that spawns the regular
+             * menu. */
+            margin-top: -360px !important;
+            height: 320px;
+            max-height: 320px;
+        }
     }
 
     /* All tabs menu: hide scroll buttons */
@@ -45,17 +58,6 @@
     #allTabsMenu-searchTabs,
     #allTabsMenu-tabsSeparator {
         display: none;
-    }
-
-    /* Similar hack to what's in appMenu.css to properly spawn the "all tabs"
-     * popup above the navigation menu */
-    #customizationui-widget-panel {
-        /* Further up than appmenu, because the "all tabs" button that spawns
-         * this menu is above the hamburger button that spawns the regular
-         * menu. */
-        margin-top: -360px !important;
-        height: 320px;
-        max-height: 320px;
     }
 
     #allTabsMenu-allTabsView vbox.panel-subview-body {

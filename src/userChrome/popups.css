@@ -2,18 +2,27 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
-    /* Now that the navbar is at the bottom, we need to set an offset to have
-     * the notifications (like the one for installing addons) displayed
-     * on-screen. */
-    /* fixes for installing extensions */
-    .popup-notification-panel  {
-        margin-top: -280px !important;
-        max-width: 98vw;
-    }
-    /* Additional fix for "Add $extension" menu */
-    #notification-popup {
-        margin-top: -330px !important;
-        padding-left: 30px;
+    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+        /* If the navbar is at the bottom, we need to set an offset to have
+         * the notifications (like the one for installing addons) displayed
+         * on-screen. */
+        /* fixes for installing extensions */
+        .popup-notification-panel  {
+            margin-top: -280px !important;
+            max-width: 98vw;
+        }
+        /* Additional fix for "Add $extension" menu */
+        #notification-popup {
+            margin-top: -330px !important;
+            padding-left: 30px;
+        }
+        /* Menu that appears when long-pressing the back-button */
+        #backForwardMenu {
+            margin-top: -250px;
+            height: 200px;
+            min-height: 200px;
+            max-width: 100vw !important;
+        }
     }
 
     #downloadsPanel-mainView {
@@ -33,14 +42,6 @@
         min-height: 100% !important;
         width: 100vw !important;
         min-width: 100vw !important;
-    }
-
-    /* Menu that appears when long-pressing the back-button */
-    #backForwardMenu {
-        margin-top: -250px;
-        height: 200px;
-        min-height: 200px;
-        max-width: 100vw !important;
     }
 
     /* Hide some context menu items,

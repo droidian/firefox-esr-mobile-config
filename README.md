@@ -11,6 +11,7 @@ This does not replace a proper implementation in
 
 * Adapt UI elements and "about:" pages to small screen sizes (when opened on
   small screen)
+* Moves the UI chrome (address- and tab-bar) to the bottom
 * Enable mobile gestures
 * Privacy tweaks:
   * Disable search suggestions
@@ -35,6 +36,9 @@ of the `3.0.0_rc1` release.
 As user, it is possible to override all options set by this project. Usually it
 can be done in the preferences (which are now adaptive, so you can actually use
 them on your phone).
+
+If you don't like that the Firefox UI is moved to the bottom, you can undo this
+change by adding `mcf.addressbarontop` and set it to true in `about:config`.
 
 If it cannot be changed in preferences, look in
 `/etc/firefox/policies/policies.json`. You can see the active policies while

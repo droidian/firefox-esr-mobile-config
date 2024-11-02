@@ -13,6 +13,7 @@ This does not replace a proper implementation in
   small screen)
 * Moves the UI chrome (address- and tab-bar) to the bottom
 * Enable mobile gestures
+* Show one tab to show the page title
 * Privacy tweaks:
   * Disable search suggestions
   * Disable Firefox studies
@@ -39,6 +40,11 @@ them on your phone).
 
 If you don't like that the Firefox UI is moved to the bottom, you can undo this
 change by adding `mcf.addressbarontop` and set it to true in `about:config`.
+
+If you don't like the single tab mode, you can show multiple tabs in tab-bar
+by adding `mcf.multipletabs` and set it to true in `about:config`. If you want
+to have a close button on every tab, add `mcf.multipletabs.showclose` and set it
+to true.
 
 If it cannot be changed in preferences, look in
 `/etc/firefox/policies/policies.json`. You can see the active policies while

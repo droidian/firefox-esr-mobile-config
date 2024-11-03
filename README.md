@@ -28,6 +28,7 @@ This does not replace a proper implementation in
     media sites on the start page)
   * Disable "User Messaging" about new features etc.
   * Hide protections menu (the shield icon) in urlbar by default
+  * Hide https in urlbar by default
 
 There's a
 [screenshot thread](https://fosstodon.org/web/@ollieparanoid/107394745970284867)
@@ -50,6 +51,10 @@ to true. If you don't like the tab counter, you can disable it by adding
 
 If you want to use the protections icon in urlbar, you can unhide it by
 adding  `mcf.showprotectionsicon` and set it to true in `about:config`.
+
+If you don't like the hiding of https:// in the urlbar, you can get back to
+default behavior by setting `browser.urlbar.trimHttps` to false in
+`about:config`.
 
 If it cannot be changed in preferences, look in
 `/etc/firefox/policies/policies.json`. You can see the active policies while

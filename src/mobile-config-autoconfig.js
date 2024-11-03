@@ -320,6 +320,10 @@ function set_default_prefs() {
     // touch device. This is the same value used by Web Developer Tools ->
     // Responsive Design Mode -> Enable touch simulation.
     defaultPref('dom.maxtouchpoints.testing.value', 1);
+
+    // Hide https:// in urlbar by default to save space and make more relevant
+    // parts of the urlbar visible.
+    defaultPref('browser.urlbar.trimHttps', true);
 }
 
 function main() {

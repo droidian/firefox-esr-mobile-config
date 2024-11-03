@@ -14,6 +14,7 @@ This does not replace a proper implementation in
 * Moves the UI chrome (address- and tab-bar) to the bottom
 * Enable mobile gestures
 * Show one tab to show the page title and add a tab counter
+* Use the native file-picker through xdg-portals
 * Privacy tweaks:
   * Disable search suggestions
   * Disable Firefox studies
@@ -55,6 +56,9 @@ adding  `mcf.showprotectionsicon` and set it to true in `about:config`.
 If you don't like the hiding of https:// in the urlbar, you can get back to
 default behavior by setting `browser.urlbar.trimHttps` to false in
 `about:config`.
+
+If you should have issues with the file picker, you can set
+`widget.use-xdg-desktop-portal.file-picker` to 2 in about:config.
 
 If it cannot be changed in preferences, look in
 `/etc/firefox/policies/policies.json`. You can see the active policies while

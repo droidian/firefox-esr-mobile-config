@@ -324,6 +324,10 @@ function set_default_prefs() {
     // Hide https:// in urlbar by default to save space and make more relevant
     // parts of the urlbar visible.
     defaultPref('browser.urlbar.trimHttps', true);
+
+    // Use the xdg-desktop-portal.file-picker by default, e.g., for a native
+    // file-picker instead of gtk-file-picker on Plasma Mobile
+    defaultPref('widget.use-xdg-desktop-portal.file-picker', 1);
 }
 
 function main() {

@@ -60,8 +60,10 @@
     @media not (-moz-bool-pref: "mcf.addressbarontop") {
         /* Rotate the arrow on the "all tabs" button to point upwards, since the
          * tabs and searchbar were moved to the bottom. */
-        #alltabs-button {
-            transform: rotate(180deg) !important;
+        @media (-moz-bool-pref: "mcf.notabcounter") {
+            #alltabs-button {
+                transform: rotate(180deg) !important;
+            }
         }
 
         /* Similar hack to what's in appMenu.css to properly spawn the "all tabs"

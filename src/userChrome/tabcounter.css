@@ -1,0 +1,54 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Source from reddit users /u/BatDogOnBatMobile, /u/moko1960, and /u/It_Was_The_Other_Guy
+     https://teddit.net/r/FirefoxCSS/comments/s4wsww/
+     https://teddit.net/r/FirefoxCSS/comments/yb8tr9/ */
+
+/* Show Tab Manager Menu button */
+#alltabs-button {
+    display: -moz-box !important;
+}
+
+/* Tab Manager Menu button tab counter */
+#TabsToolbar-customization-target {
+    counter-reset: tabCount;
+}
+.tabbrowser-tab {
+    counter-increment: tabCount;
+}
+#alltabs-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+    visibility: collapse !important;
+}
+#alltabs-button > .toolbarbutton-badge-stack {
+     position: relative !important;
+}
+#alltabs-button > .toolbarbutton-badge-stack::before {
+    content: counter(tabCount);
+    color: var(--toolbarbutton-icon-fill);
+    opacity: var(--toolbarbutton-icon-fill-opacity);
+    position: absolute;
+    bottom: var(--toolbarbutton-inner-padding);
+    left: 50%;
+    transform: translateX(-50%);
+}
+#alltabs-button > .toolbarbutton-badge-stack {
+    border-radius: var(--toolbarbutton-border-radius);
+}
+
+/* Tab Manager Menu tab counter */
+#allTabsMenu-allTabsViewTabs, /* before FF 106 */
+#allTabsMenu-allTabsView-tabs { /* since FF 106 */
+    counter-reset: nn_tabs 0 !important;
+}
+.all-tabs-button::before {
+    display: -moz-inline-box !important;
+    -moz-padding-end: 8px !important;
+    content: counter(nn_tabs) !important;
+    font-size: 12px !important; 
+    margin-top: -2px !important; 
+    margin-right: -2px !important;
+}
+.all-tabs-item {
+    counter-increment: nn_tabs !important;
+}

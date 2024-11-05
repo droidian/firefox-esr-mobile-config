@@ -41,7 +41,9 @@
     }
 
     /* urlbar: Hide translate and picture-in-picture icon */
-    #urlbar #translations-button, #urlbar #picture-in-picture-button, #urlbar #identity-box #identity-permission-box {
+    #urlbar #translations-button,
+    #urlbar #picture-in-picture-button,
+    #urlbar #identity-box #identity-permission-box {
         display: none !important;
     }
 
@@ -80,7 +82,7 @@
         margin: 0px !important;
         margin-inline: 0px !important;
         border-inline: 0px !important;
-        overflow-y:  auto !important;
+        overflow-y: auto !important;
         overflow-x: none !important;
         scrollbar-width: none;
     }
@@ -113,6 +115,6 @@
  * installed when FF starts for the first time. Hide the button in "This time,
  * search with" inside the urlbar. Match localizations like Amazon.de with this
  * regex. */
-button[id^='urlbar-engine-one-off-item-Amazon'] {
+button[id^="urlbar-engine-one-off-item-Amazon"] {
     display: none !important;
 }

@@ -38,7 +38,7 @@
             left: 50%;
             transform: translateX(-50%);
             /* Tab Manager Menu button styling inspired by Firefox for Android */
-            border: 1px solid var(--tab-icon-overlay-fill);
+            border: 1px solid var(--toolbarbutton-icon-fill);
             border-radius: var(--tab-border-radius);
             padding: 0 5px 0 5px;
             font-size: 10px !important;

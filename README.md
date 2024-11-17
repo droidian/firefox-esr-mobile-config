@@ -10,7 +10,7 @@ This does not replace a proper implementation in
 ## Matrix / IRC channel
 
 * Matrix: `#mobile-config-firefox:postmarketos.org`
-* IRC: `mobile-config-firefox` at OFTC
+* IRC: `#mobile-config-firefox` at OFTC
 
 ## What this config does
 

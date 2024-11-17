@@ -7,6 +7,11 @@ This does not replace a proper implementation in
 [Firefox upstream](https://bugzilla.mozilla.org/show_bug.cgi?id=1579348)
 *(interesting stuff happens in issues linked in "References")*.
 
+## Matrix / IRC channel
+
+* Matrix: `#mobile-config-firefox:postmarketos.org`
+* IRC: `mobile-config-firefox` at OFTC
+
 ## What this config does
 
 * Adapt UI elements and "about:" pages to small screen sizes (when opened on

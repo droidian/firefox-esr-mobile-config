@@ -4,22 +4,19 @@ Subject: [PATCH] mobile-config-autoconfig: add Mobian preferences
 
 Forwarded: not-needed
 ---
- src/mobile-config-autoconfig.js | 60 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
+ src/mobile-config-autoconfig.js | 57 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
 diff --git a/src/mobile-config-autoconfig.js b/src/mobile-config-autoconfig.js
-index 3d82eef..511f166 100644
+index 5392ceb..cc6e592 100644
 --- a/src/mobile-config-autoconfig.js
 +++ b/src/mobile-config-autoconfig.js
-@@ -315,6 +315,66 @@ function set_default_prefs() {
-     // makes a lot of sense to enable it unconditionally, as cameras usually
-     // only work with libcamera, not via plain v4l2.
-     defaultPref('media.webrtc.camera.allow-pipewire', true);
+@@ -328,6 +328,63 @@ function set_default_prefs() {
+     // Use the xdg-desktop-portal.file-picker by default, e.g., for a native
+     // file-picker instead of gtk-file-picker on Plasma Mobile
+     defaultPref('widget.use-xdg-desktop-portal.file-picker', 1);
 +
 +    // Default preferences for Debian (can be overridden by users)
-+
-+    // Use smaller buttons
-+    defaultPref("browser.uidensity", 1);
 +
 +    // Allow Firefox accounts
 +    defaultPref("webchannel.allowObject.urlWhitelist", "https://accounts.firefox.com https://content.cdn.mozilla.net https://input.mozilla.org https://support.mozilla.org https://install.mozilla.org");

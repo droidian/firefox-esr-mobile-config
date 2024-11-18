@@ -10,10 +10,10 @@ policy as Mobian installs it by default.
  1 file changed, 109 deletions(-)
 
 diff --git a/src/policies.json b/src/policies.json
-index ee6fe68..4676ca4 100644
+index 65b68b6..fa6bef0 100644
 --- a/src/policies.json
 +++ b/src/policies.json
-@@ -23,121 +23,12 @@
+@@ -23,108 +23,6 @@
              "Locked": false
          },
  
@@ -119,9 +119,10 @@ index ee6fe68..4676ca4 100644
 -            ]
 -        },
 -
-         "UserMessaging": {
-             "WhatsNew": false,
-             "ExtensionRecommendations": false,
+         "Preferences": {
+             "dom.private-attribution.submission.enabled": {
+                 "Value": false,
+@@ -138,13 +36,6 @@
              "FeatureRecommendations": false,
              "UrlbarInterventions": false,
              "SkipOnboarding": false

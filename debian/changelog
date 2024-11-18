@@ -1,8 +1,11 @@
-firefox-esr-mobile-config (4.4.0-1) UNRELEASED; urgency=medium
+firefox-esr-mobile-config (4.4.0-1) unstable; urgency=medium
 
   * New upstream version
+  * d/patches: refresh for new upstream release
+  * d/control: bump Standards-Version, no other change needed
+  * d/patches: fix metainfo validation
 
- -- Arnaud Ferraris <aferraris@debian.org>  Mon, 18 Nov 2024 12:24:40 +0100
+ -- Arnaud Ferraris <aferraris@debian.org>  Mon, 18 Nov 2024 15:09:48 +0100
 
 firefox-esr-mobile-config (4.3.2-2) unstable; urgency=medium
 

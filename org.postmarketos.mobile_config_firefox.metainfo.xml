@@ -4,6 +4,7 @@
 
   <name>Mobile Config for Firefox</name>
   <summary>Mobile and privacy friendly configuration for Firefox (distro-independent)</summary>
+  <url type="homepage">https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox</url>
 
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MPL-2.0</project_license>

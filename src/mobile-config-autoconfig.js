@@ -315,6 +315,19 @@ function set_default_prefs() {
     // makes a lot of sense to enable it unconditionally, as cameras usually
     // only work with libcamera, not via plain v4l2.
     defaultPref('media.webrtc.camera.allow-pipewire', true);
+
+    // Make navigator.maxTouchPoints return 1 for clients to determine this is a
+    // touch device. This is the same value used by Web Developer Tools ->
+    // Responsive Design Mode -> Enable touch simulation.
+    defaultPref('dom.maxtouchpoints.testing.value', 1);
+
+    // Hide https:// in urlbar by default to save space and make more relevant
+    // parts of the urlbar visible.
+    defaultPref('browser.urlbar.trimHttps', true);
+
+    // Use the xdg-desktop-portal.file-picker by default, e.g., for a native
+    // file-picker instead of gtk-file-picker on Plasma Mobile
+    defaultPref('widget.use-xdg-desktop-portal.file-picker', 1);
 }
 
 function main() {

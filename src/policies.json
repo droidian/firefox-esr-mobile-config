@@ -125,6 +125,13 @@
             ]
         },
 
+        "Preferences": {
+            "dom.private-attribution.submission.enabled": {
+                "Value": false,
+                "Status": "locked"
+            }
+        },
+
         "UserMessaging": {
             "WhatsNew": false,
             "ExtensionRecommendations": false,

@@ -2,19 +2,26 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
-    /* Spawn the menu above the navigation bar (now that we've moved it to the
-     * bottom). Without this, it still spawns above, but only with a small
-     * height. This is due to the position="bottomcenter topright" attribute in
-     * the HTML, which we can't override via CSS. */
+    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+        /* Spawn the menu above the navigation bar (now that we've moved it to the
+         * bottom). Without this, it still spawns above, but only with a small
+         * height. This is due to the position="bottomcenter topright" attribute in
+         * the HTML, which we can't override via CSS. */
+        #appMenu-popup {
+            margin-top: -410px !important;
+        }
+
+        #appMenu-protonMainView vbox.panel-subview-body, #appMenu-mainView vbox.panel-subview-body {
+            height: 330px !important;
+            max-height: 330px !important;
+        }
+    }
+
     #appMenu-popup {
-        margin-top: -410px !important;
         height: 330px;
         max-height: 330px;
     }
-    #appMenu-protonMainView vbox.panel-subview-body, #appMenu-mainView vbox.panel-subview-body {
-        height: 330px !important;
-        max-height: 330px !important;
-    }
+
     #appMenu-multiView box.panel-viewstack:first-child {
         /* Use the whole space in the menu, instead of slowly increasing the
          * height via animation. This animation is broken anyway due to the

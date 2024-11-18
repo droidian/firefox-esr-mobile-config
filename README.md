@@ -11,7 +11,10 @@ This does not replace a proper implementation in
 
 * Adapt UI elements and "about:" pages to small screen sizes (when opened on
   small screen)
+* Moves the UI chrome (address- and tab-bar) to the bottom
 * Enable mobile gestures
+* Show one tab to show the page title and add a tab counter
+* Use the native file-picker through xdg-portals
 * Privacy tweaks:
   * Disable search suggestions
   * Disable Firefox studies
@@ -25,6 +28,8 @@ This does not replace a proper implementation in
   * Disable built-in advertisements (e.g. hardcoded links for certain social
     media sites on the start page)
   * Disable "User Messaging" about new features etc.
+  * Hide protections menu (the shield icon) in urlbar by default
+  * Hide https in urlbar by default
 
 There's a
 [screenshot thread](https://fosstodon.org/web/@ollieparanoid/107394745970284867)
@@ -35,6 +40,25 @@ of the `3.0.0_rc1` release.
 As user, it is possible to override all options set by this project. Usually it
 can be done in the preferences (which are now adaptive, so you can actually use
 them on your phone).
+
+If you don't like that the Firefox UI is moved to the bottom, you can undo this
+change by adding `mcf.addressbarontop` and set it to true in `about:config`.
+
+If you don't like the single tab mode, you can show multiple tabs in tab-bar
+by adding `mcf.multipletabs` and set it to true in `about:config`. If you want
+to have a close button on every tab, add `mcf.multipletabs.showclose` and set it
+to true. If you don't like the tab counter, you can disable it by adding
+`mcf.tabcounter.disable` in `about:config` and setting it to true.
+
+If you want to use the protections icon in urlbar, you can unhide it by
+adding  `mcf.showprotectionsicon` and set it to true in `about:config`.
+
+If you don't like the hiding of https:// in the urlbar, you can get back to
+default behavior by setting `browser.urlbar.trimHttps` to false in
+`about:config`.
+
+If you should have issues with the file picker, you can set
+`widget.use-xdg-desktop-portal.file-picker` to 2 in about:config.
 
 If it cannot be changed in preferences, look in
 `/etc/firefox/policies/policies.json`. You can see the active policies while

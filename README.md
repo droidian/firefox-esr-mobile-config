@@ -28,7 +28,7 @@ This does not replace a proper implementation in
     for Wikipedia (only works in Firefox ESR, limitation of
     [policies.json](https://github.com/mozilla/policy-templates/blob/cab6a5076c1d8e5a1574637709c19b54bdbd669e/README.md#searchengines--remove))
   * Install [uBlock origin](https://github.com/gorhill/uBlock) by default
-    ([why?](https://gitlab.com/postmarketOS/mobile-config-firefox/-/commit/160a1056c2cf35572157762f66174ea7c0b1db06))
+    ([why?](https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox/-/commit/160a1056c2cf35572157762f66174ea7c0b1db06))
 * Uncluttering:
   * Disable built-in advertisements (e.g. hardcoded links for certain social
     media sites on the start page)
@@ -73,10 +73,10 @@ if you do not want it. Without editing the file, it can only be disabled in the
 add-on settings, and not removed, this is a limitation of `policies.json`.
 
 Feel free to
-[create an issue](https://gitlab.com/postmarketOS/mobile-config-firefox/-/issues)
+[create an issue](https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox/-/issues)
 if you run into problems. Or even better, attempt to fix the problem yourself
 (see development instructions below) and submit a
-[merge request](https://gitlab.com/postmarketOS/mobile-config-firefox/-/merge_requests).
+[merge request](https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox/-/merge_requests).
 
 ## Contributing changes to userChrome
 Firefox' developer tools include a

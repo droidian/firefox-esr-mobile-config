@@ -1,4 +1,4 @@
-/* Copyright 2022 Oliver Smith
+/* Copyright 2025 Oliver Smith, Peter Mack
  * SPDX-License-Identifier: MPL-2.0 */
 
 /* Reduce minimum window width */
@@ -63,6 +63,27 @@
     #urlbar[focused] #page-action-buttons,
     #urlbar[focused] .urlbar-go-button {
         display: none;
+    }
+
+    /* Fixing invisible URL bar on FF 133+ */
+    #urlbar[breakout][breakout-extend] {
+        width: --urlbar-width !important;
+        bottom: 0 !important;
+        z-index: 5 !important;
+    }
+
+    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+        #urlbar[breakout][breakout-extend] {
+            top: 0 !important;
+            align-content: flex-end !important;
+        }
+    }
+
+    @media (-moz-bool-pref: "mcf.addressbarontop") {
+        #urlbar[breakout][breakout-extend] {
+            top: calc(1.1 * --urlbar-container-height) !important;
+            align-content: flex-start !important;
+        }
     }
 
     /* Label of "identity icons", e.g. firefox specific pages look weird

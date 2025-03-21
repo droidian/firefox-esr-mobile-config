@@ -1,19 +1,39 @@
-/* Copyright 2022 Peter Mack, Oliver Smith
+/* Copyright 2025 Peter Mack, Oliver Smith
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
-    /* Even when not in private browsing mode, reserve space to the right of
-     * the tab bar for the private-browsing-indicator (that mask icon). This
-     * gives the tab bar a consistent width in both the regular and the private
-     * browsing mode, so the increased width hack below looks good in both. */
+    /* Make sure that we don't waste space on the right.
+     * This can removed once we no longer support ESR 128 */
     #titlebar {
-        padding-right: 30px;
+        padding-right: 0px;
+    }
+
+
+    /* Increase tab width, to have more space for displaying the title of the
+     * website, supporting uidensity=touch
+     * Note that -94px/-124px would be enough for current (136), but ESR 128
+     * requires more (-102px/-132px) */
+    #tabbrowser-tabs {
+        border-inline-start: 0 !important;
+        --tab-min-width: calc(100vw - 86px) !important;
+
+        :root[uidensity=touch] & {
+            --tab-min-width: calc(100vw - 102px) !important;
+        }
+    }
+
+    /* Smaller tab width to allow for private browsing indicator */
+    :root[privatebrowsingmode="temporary"] #tabbrowser-tabs {
+        --tab-min-width: calc(100vw - 116px) !important; /* width */
+
+        :root[uidensity=touch] & {
+            --tab-min-width: calc(100vw - 132px) !important;
+        }
     }
 
     /* Fix private browsing mode for Firefox 115-132 */
     #private-browsing-indicator-with-label {
-        margin-inline: 0px !important;
-        width: 0px;
+        margin-inline: 2px !important;
         font-size: 0;
     }
     /* Fix private browsing mode for current Firefox >= 133 */
@@ -26,18 +46,8 @@
         display: none;
     }
 
-    /* Increase tab width, to have more space for displaying the title of the
-     * website */
-    #tabbrowser-tabs {
-        --tab-min-width: calc(100vw - 116px) !important;
-        border-inline-start: 0 !important;
-    }
-
     /* Option to show multiple tabs in tab bar */
     @media (-moz-bool-pref: "mcf.multipletabs") {
-        #titlebar {
-            padding-right: 0px !important;
-        }
         /* Set small tabs width for small screens */
         #tabbrowser-tabs {
             --tab-min-width: 75px !important;

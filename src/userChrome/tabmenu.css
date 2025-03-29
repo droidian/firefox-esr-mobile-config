@@ -12,22 +12,27 @@
     /* Increase tab width, to have more space for displaying the title of the
      * website, supporting uidensity=touch
      * Note that -94px/-124px would be enough for current (136), but ESR 128
-     * requires more (-102px/-132px) */
+     * requires more (-102px/-132px)
+     * FF137+ needs --tab-*-width-pref */
     #tabbrowser-tabs {
         border-inline-start: 0 !important;
         --tab-min-width: calc(100vw - 86px) !important;
+        --tab-min-width-pref: calc(100vw - 86px) !important;
 
         :root[uidensity=touch] & {
             --tab-min-width: calc(100vw - 102px) !important;
+            --tab-min-width-pref: calc(100vw - 102px) !important;
         }
     }
 
     /* Smaller tab width to allow for private browsing indicator */
     :root[privatebrowsingmode="temporary"] #tabbrowser-tabs {
         --tab-min-width: calc(100vw - 116px) !important; /* width */
+        --tab-min-width-pref: calc(100vw - 116px) !important; /* width */
 
         :root[uidensity=touch] & {
             --tab-min-width: calc(100vw - 132px) !important;
+            --tab-min-width-pref: calc(100vw - 132px) !important;
         }
     }
 
@@ -47,11 +52,14 @@
     }
 
     /* Option to show multiple tabs in tab bar */
-    @media (-moz-bool-pref: "mcf.multipletabs") {
+    @media (-moz-bool-pref: "mcf.multipletabs"),
+        -moz-pref("mcf.multipletabs") {
         /* Set small tabs width for small screens */
         #tabbrowser-tabs {
             --tab-min-width: 75px !important;
+            --tab-min-width-pref: 75px !important;
             --tab-max-width: 150px !important;
+            --tab-max-width-pref: 150px !important;
         }
 
         /* Remove empty space at start/end */
@@ -64,17 +72,20 @@
         }
 
         /* Optionally show close button on all tabs */
-        @media (-moz-bool-pref: "mcf.multipletabs.showclose") {
+        @media (-moz-bool-pref: "mcf.multipletabs.showclose"),
+            not (-moz-pref("mcf.multipletabs.showclose")) {
             .tab-close-button, .close-icon, #tabbrowser-tabs[closebuttons="activetab"][orient="horizontal"] &:not([selected]) {
                 display: block !important;
             }
         }
     }
 
-    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+    @media not (-moz-bool-pref: "mcf.addressbarontop"),
+        not (-moz-pref("mcf.addressbarontop")) {
         /* Rotate the arrow on the "all tabs" button to point upwards, since the
          * tabs and searchbar were moved to the bottom. */
-        @media (-moz-bool-pref: "mcf.notabcounter") {
+        @media (-moz-bool-pref: "mcf.tabcounter.disable"),
+            -moz-pref("mcf.tabcounter.disable") {
             #alltabs-button {
                 transform: rotate(180deg) !important;
             }

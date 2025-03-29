@@ -48,7 +48,8 @@
     }
 
     /* hide protections container by default */
-    @media not (-moz-bool-pref: "mcf.showprotectionsicon") {
+    @media not (-moz-bool-pref: "mcf.showprotectionsicon"),
+        not (-moz-pref("mcf.showprotectionsicon")) {
         #tracking-protection-icon-container {
             display: none !important;
         }
@@ -72,14 +73,16 @@
         z-index: 5 !important;
     }
 
-    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+    @media not (-moz-bool-pref: "mcf.addressbarontop"),
+        not (-moz-pref("mcf.addressbarontop")) {
         #urlbar[breakout][breakout-extend] {
             top: 0 !important;
             align-content: flex-end !important;
         }
     }
 
-    @media (-moz-bool-pref: "mcf.addressbarontop") {
+    @media (-moz-bool-pref: "mcf.addressbarontop"),
+        -moz-pref("mcf.addressbarontop") {
         #urlbar[breakout][breakout-extend] {
             top: calc(1.1 * --urlbar-container-height) !important;
             align-content: flex-start !important;
@@ -108,7 +111,8 @@
         scrollbar-width: none;
     }
 
-    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+    @media not (-moz-bool-pref: "mcf.addressbarontop"),
+        not (-moz-pref("mcf.addressbarontop")) {
         .urlbarView {
             inset: 0px 0px 84px 0px;
         }

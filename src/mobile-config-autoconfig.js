@@ -273,6 +273,7 @@ function css_files_update() {
 
 /**
  * Set default user agent and override it for specific websites
+ * (See also: src/userChrome.js in furios-firefox-tweaks.git)
  */
 function set_user_agent() {
     const APP_VERSION = `${AppConstants.MOZ_APP_VERSION.split(".")[0]}.0`;

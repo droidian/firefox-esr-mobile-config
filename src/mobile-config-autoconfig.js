@@ -336,6 +336,36 @@ function set_default_prefs() {
     // Use the xdg-desktop-portal.file-picker by default, e.g., for a native
     // file-picker instead of gtk-file-picker on Plasma Mobile
     defaultPref('widget.use-xdg-desktop-portal.file-picker', 1);
+
+    // Enable android-style pinch-to-zoom
+    defaultPref('dom.w3c.touch_events.enabled', true);
+    defaultPref('apz.allow_zooming', true);
+    defaultPref('apz.allow_double_tap_zooming', true);
+
+    // Enable legacy touch event APIs, as some websites use this to check for mobile compatibility
+    // and Firefox on Android behaves the same way
+    defaultPref('dom.w3c_touch_events.legacy_apis.enabled', true);
+
+    // Save vertical space by hiding the titlebar
+    defaultPref('browser.tabs.inTitlebar', 1);
+
+    // Disable search suggestions
+    defaultPref('browser.search.suggest.enabled', false);
+
+    // Empty new tab page: faster, less distractions
+    defaultPref('browser.newtabpage.enabled', false);
+
+    // Allow UI customizations with userChrome.css and userContent.css
+    defaultPref('toolkit.legacyUserProfileCustomizations.stylesheets', true);
+
+    // Select the entire URL with one click
+    defaultPref('browser.urlbar.clickSelectsAll', true);
+
+    // Disable cosmetic animations, save CPU
+    defaultPref('toolkit.cosmeticAnimations.enabled', false);
+
+    // Disable download animations, save CPU
+    defaultPref('browser.download.animateNotifications', false);
 }
 
 function main() {

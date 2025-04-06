@@ -66,26 +66,32 @@
         display: none;
     }
 
-    /* Fixing invisible URL bar on FF 133+ */
-    #urlbar[breakout][breakout-extend] {
-        width: --urlbar-width !important;
-        bottom: 0 !important;
-        z-index: 5 !important;
-    }
-
-    @media not (-moz-bool-pref: "mcf.addressbarontop"),
-        not (-moz-pref("mcf.addressbarontop")) {
+    /* Making sure we are not applying the following changes to ESR 128 */
+    #navigator-toolbox:not(:has(> #titlebar)) {
+        /* Fixing invisible URL bar on FF 133+
+         * Making the active URL bar wider for better text input and
+         * a wider popout */
         #urlbar[breakout][breakout-extend] {
-            top: 0 !important;
-            align-content: flex-end !important;
+            left: 11vw !important; /* should be 10, but 10 looks off-center */
+            width: 80vw !important;
+            bottom: 0 !important;
+            z-index: 5 !important;
         }
-    }
 
-    @media (-moz-bool-pref: "mcf.addressbarontop"),
-        -moz-pref("mcf.addressbarontop") {
-        #urlbar[breakout][breakout-extend] {
+        @media not (-moz-bool-pref: "mcf.addressbarontop"),
+            not (-moz-pref("mcf.addressbarontop")) {
+            #urlbar[breakout][breakout-extend] {
+                top: 0 !important;
+                align-content: flex-end !important;
+            }
+        }
+
+        @media (-moz-bool-pref: "mcf.addressbarontop"),
+            -moz-pref("mcf.addressbarontop") {
+            #urlbar[breakout][breakout-extend] {
             top: calc(1.1 * --urlbar-container-height) !important;
             align-content: flex-start !important;
+            }
         }
     }
 

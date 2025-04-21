@@ -19,7 +19,9 @@
 
 const {classes: Cc, interfaces: Ci, utils: Cu} = Components;
 const Services = globalThis.Services;
-Cu.import("resource://gre/modules/FileUtils.jsm");
+ChromeUtils.defineESModuleGetters(this, {
+  FileUtils: "resource://gre/modules/FileUtils.sys.mjs",
+});
 
 var g_ff_version;
 var g_updated = false;

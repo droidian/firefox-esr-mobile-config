@@ -2,7 +2,8 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
-    @media not (-moz-bool-pref: "mcf.addressbarontop") {
+    @media not (-moz-bool-pref: "mcf.addressbarontop"),
+        not (-moz-pref("mcf.addressbarontop")) {
         /* Spawn the menu above the navigation bar (now that we've moved it to the
          * bottom). Without this, it still spawns above, but only with a small
          * height. This is due to the position="bottomcenter topright" attribute in

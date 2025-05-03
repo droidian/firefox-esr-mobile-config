@@ -6,7 +6,8 @@
  * https://old.reddit.com/r/FirefoxCSS/comments/yb8tr9/ */
 
 @media (max-width: 901px) {
-    @media not (-moz-bool-pref: "mcf.tabcounter.disable") {
+    @media not (-moz-bool-pref: "mcf.tabcounter.disable"),
+        not (-moz-pref("mcf.tabcounter.disable")) {
         /* Show Tab Manager Menu button */
         #alltabs-button {
             display: -moz-box !important;
@@ -50,7 +51,8 @@
         }
 
         /* Tab Manager Menu tab counter */
-        @media (-moz-bool-pref: "mcf.tabcounter.countinmenu") {
+        @media (-moz-bool-pref: "mcf.tabcounter.countinmenu"),
+            -moz-pref("mcf.tabcounter.countinmenu") {
             #allTabsMenu-allTabsView-tabs {
                 counter-reset: nn_tabs 0 !important;
             }

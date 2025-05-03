@@ -19,7 +19,15 @@
 
 const {classes: Cc, interfaces: Ci, utils: Cu} = Components;
 const Services = globalThis.Services;
-Cu.import("resource://gre/modules/FileUtils.jsm");
+const { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
+const IS_ESM_READY = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+
+// We need to conditionally load some modules because they haven't been ported
+// the ES module yet. This workaround can be removed when ESR128 will be EOL.
+const { FileUtils } =
+    IS_ESM_READY
+      ? ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs")
+      : Cu.import("resource://gre/modules/FileUtils.jsm");
 
 var g_ff_version;
 var g_updated = false;
@@ -264,29 +272,73 @@ function css_files_update() {
 }
 
 /**
- * Builds a user-agent as similar to the default as possible, but with "Mobile"
- * inserted into the platforms section.
- *
- * @returns {string}
+ * Set default user agent and override it for specific websites
+ * (See also: src/userChrome.js in furios-firefox-tweaks.git)
  */
-function build_user_agent() {
-    var appinfo = Services.appinfo;
-    var vendor = appinfo.vendor || "Mozilla";
-    var os = appinfo.OS || "Linux";
-    var version = get_firefox_version() + ".0";
-    var name = appinfo.name || "Firefox";
-    var arch = (appinfo.XPCOMABI && appinfo.XPCOMABI.includes("-"))
-        ? appinfo.XPCOMABI.split("-")[0]
-        : "aarch64";
+function set_user_agent() {
+    const APP_VERSION = `${AppConstants.MOZ_APP_VERSION.split(".")[0]}.0`;
 
-    return `${vendor}/5.0 (X11; ${os} ${arch}; Mobile; rv:${version}) Gecko/20100101 ${name}/${version}`;
+    // We added `Mobile;` to the default Firefox Desktop user agent
+    const UA_FIREFOX_DESKTOP = `Mozilla/5.0 (X11; Linux x86_64; Mobile; rv:${APP_VERSION}) Gecko/20100101 Firefox/${APP_VERSION}`;
+    const UA_FIREFOX_ANDROID = `Mozilla/5.0 (Android 15; Mobile; rv:${APP_VERSION}) Gecko/${APP_VERSION} Firefox/${APP_VERSION}`;
+    // Google version API: https://developer.chrome.com/docs/web-platform/versionhistory/reference
+    const UA_CHROME_ANDROID = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.135 Mobile Safari/537.36";
+    const UA_CHROME_CHROMEOS = "Mozilla/5.0 (X11; CrOS aarch64 15329.44.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.137 Safari/537.36";
+
+    // Set default user agent
+    defaultPref('general.useragent.override', UA_FIREFOX_DESKTOP);
+
+    const userAgentRules = {
+        // Google
+        // FIX: Google login not trusting the browser
+        "^https?://accounts.google.com($|/)": UA_FIREFOX_DESKTOP,
+        // FIX: Google Search showing up as the old layout
+        "^https?://(wwww.)?google.com($|/)": UA_FIREFOX_ANDROID,
+        // FIX: ???
+        "^https?://drive.google.com($|/)": UA_CHROME_ANDROID,
+        // FIX: Google Maps search bar not being interactive
+        "^https?://(www.)?google.com/maps($|/)": UA_FIREFOX_DESKTOP,
+        "^https?://maps.google.com($|/)": UA_FIREFOX_DESKTOP,
+
+        // Firefox
+        // FIX: Sync login not completing
+        "^https?://accounts.firefox.com($|/)": UA_FIREFOX_DESKTOP,
+
+        // Mozilla
+        // FIX: AMO thinks we want the android extensions
+        "^https?://addons.mozilla.org($|/)": UA_FIREFOX_DESKTOP,
+
+        // Youtube
+        // FIX: YouTube fullscreen acting weird
+        "^https?://(m.)?youtube.com($|/)": UA_FIREFOX_ANDROID,
+
+        // Netflix
+        // FIX: Netflix refusing to playback even if EME is working
+        "^https?://(www.)?netflix.com($|/)": UA_CHROME_CHROMEOS,
+    };
+
+    const requestObserver = {
+        observe: function(subject, topic, data) {
+            if (topic == "http-on-modify-request") {
+                const httpChannel = subject.QueryInterface(Ci.nsIHttpChannel);
+                const uri = httpChannel.URI.spec;
+
+                for (const [urlPattern, userAgentRule] of Object.entries(userAgentRules)) {
+                    if (new RegExp(urlPattern).test(uri)) {
+                        httpChannel.setRequestHeader("User-Agent", userAgentRule, false);
+                        break;
+                    }
+                }
+            }
+        }
+    };
+
+    const observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+    observerService.addObserver(requestObserver, "http-on-modify-request", false);
 }
 
 function set_default_prefs() {
     log("Setting default preferences");
-
-    var user_agent = build_user_agent();
-    defaultPref('general.useragent.override', user_agent);
 
     // Do not suggest facebook, ebay, reddit etc. in the urlbar. Same as
     // Settings -> Privacy & Security -> Address Bar -> Shortcuts. As
@@ -328,11 +380,44 @@ function set_default_prefs() {
     // Use the xdg-desktop-portal.file-picker by default, e.g., for a native
     // file-picker instead of gtk-file-picker on Plasma Mobile
     defaultPref('widget.use-xdg-desktop-portal.file-picker', 1);
+
+    // Enable android-style pinch-to-zoom
+    defaultPref('dom.w3c.touch_events.enabled', true);
+    defaultPref('apz.allow_zooming', true);
+    defaultPref('apz.allow_double_tap_zooming', true);
+
+    // Enable legacy touch event APIs, as some websites use this to check for mobile compatibility
+    // and Firefox on Android behaves the same way
+    defaultPref('dom.w3c_touch_events.legacy_apis.enabled', true);
+
+    // Save vertical space by hiding the titlebar
+    defaultPref('browser.tabs.inTitlebar', 1);
+
+    // Disable search suggestions
+    defaultPref('browser.search.suggest.enabled', false);
+
+    // Empty new tab page: faster, less distractions
+    defaultPref('browser.newtabpage.enabled', false);
+
+    // Allow UI customizations with userChrome.css and userContent.css
+    defaultPref('toolkit.legacyUserProfileCustomizations.stylesheets', true);
+
+    // Select the entire URL with one click
+    defaultPref('browser.urlbar.clickSelectsAll', true);
+
+    // Disable cosmetic animations, save CPU
+    defaultPref('toolkit.cosmeticAnimations.enabled', false);
+
+    // Disable download animations, save CPU
+    defaultPref('browser.download.animateNotifications', false);
 }
 
 function main() {
     log("Running mobile-config-autoconfig.js");
     css_files_update();
+
+    // Set default user agent and override it for specific websites
+    set_user_agent();
 
     // Restart Firefox immediately if one of the files got updated
     if (g_updated == true)

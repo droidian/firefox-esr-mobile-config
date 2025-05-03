@@ -1,3 +1,9 @@
+firefox-esr-mobile-config (4.6.0-1) UNRELEASED; urgency=medium
+
+  * New upstream version
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 04 May 2025 00:56:36 +0530
+
 firefox-esr-mobile-config (4.4.0-1) unstable; urgency=medium
 
   * New upstream version

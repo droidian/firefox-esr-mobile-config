@@ -1,3 +1,10 @@
+firefox-esr-mobile-config (4.6.0-2) experimental; urgency=medium
+
+  * Support LibreWolf by providing symblic links to /usr/share/librewolf
+    (Closes: #1104664)
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 04 May 2025 14:47:02 +0530
+
 firefox-esr-mobile-config (4.6.0-1) experimental; urgency=medium
 
   * Team upload.

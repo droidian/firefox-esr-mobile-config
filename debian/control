@@ -16,6 +16,7 @@ Architecture: all
 Depends:
  ${misc:Depends},
  firefox-esr (>= 115),
+Provides: librewolf-mobile-config (=${source:Version})
 Description: Default mobile-friendly configuration for Firefox ESR
  This package provides a set of configuration files aimed at making Firefox ESR
  more mobile-friendly. It provides:

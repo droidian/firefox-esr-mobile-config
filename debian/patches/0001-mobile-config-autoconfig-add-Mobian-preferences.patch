@@ -7,14 +7,12 @@ Forwarded: not-needed
  src/mobile-config-autoconfig.js | 57 +++++++++++++++++++++++++++++++++++++++++
  1 file changed, 57 insertions(+)
 
-diff --git a/src/mobile-config-autoconfig.js b/src/mobile-config-autoconfig.js
-index 5392ceb..cc6e592 100644
 --- a/src/mobile-config-autoconfig.js
 +++ b/src/mobile-config-autoconfig.js
-@@ -328,6 +328,63 @@ function set_default_prefs() {
-     // Use the xdg-desktop-portal.file-picker by default, e.g., for a native
-     // file-picker instead of gtk-file-picker on Plasma Mobile
-     defaultPref('widget.use-xdg-desktop-portal.file-picker', 1);
+@@ -410,6 +410,63 @@
+ 
+     // Disable download animations, save CPU
+     defaultPref('browser.download.animateNotifications', false);
 +
 +    // Default preferences for Debian (can be overridden by users)
 +

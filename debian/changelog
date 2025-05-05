@@ -1,5 +1,14 @@
+firefox-esr-mobile-config (4.6.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * Reupload to unstable
+  * Add Provides: librewolf-mobile-config
+
+ -- Pirate Praveen <praveen@debian.org>  Tue, 06 May 2025 02:46:19 +0530
+
 firefox-esr-mobile-config (4.6.0-2) experimental; urgency=medium
 
+  * Team upload.
   * Support LibreWolf by providing symblic links to /usr/share/librewolf
     (Closes: #1104664)
 

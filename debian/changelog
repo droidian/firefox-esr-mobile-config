@@ -1,8 +1,12 @@
-firefox-esr-mobile-config (4.6.1-1) UNRELEASED; urgency=medium
+firefox-esr-mobile-config (4.6.1-1) unstable; urgency=medium
 
   * New upstream version
+  * d/control: drop Rules-Requires-Root.
+    This parameter now defaults to `no`, so we can drop this entry. Also
+    bump Standards-Version, as no other change is needed.
+  * d/watch: update to version 5
 
- -- Arnaud Ferraris <aferraris@debian.org>  Tue, 30 Sep 2025 08:59:16 +0200
+ -- Arnaud Ferraris <aferraris@debian.org>  Tue, 30 Sep 2025 09:32:50 +0200
 
 firefox-esr-mobile-config (4.6.0-3) unstable; urgency=medium
 

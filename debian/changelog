@@ -1,3 +1,9 @@
+firefox-esr-mobile-config (4.6.1-1) UNRELEASED; urgency=medium
+
+  * New upstream version
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Tue, 30 Sep 2025 08:59:16 +0200
+
 firefox-esr-mobile-config (4.6.0-3) unstable; urgency=medium
 
   * Team upload.

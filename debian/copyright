@@ -4,55 +4,76 @@ Upstream-Contact: Oliver Smith <ollieparanoid@postmarketos.org>
 Source: https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox
 
 Files: *
-Copyright: 2020-2022, Oliver Smith <ollieparanoid@postmarketos.org>
+Copyright: 2020-2025 Oliver Smith <ollieparanoid@postmarketos.org>
 License: MPL-2.0
 
 Files: debian/*
-Copyright: 2020-2022, Arnaud Ferraris <aferraris@debian.org>
+Copyright: 2020-2025 Arnaud Ferraris <aferraris@debian.org>
 License: MPL-2.0
 
-Files: src/common/header.css
-       src/mobile-config-autoconfig.js
-Copyright: 2021-2022, Oliver Smith <ollieparanoid@postmarketos.org>
-           2021-2022, Arnaud Ferraris <aferraris@debian.org>
+Files: src/mobile-config-autoconfig.js
+Copyright: 2021-2025 Oliver Smith <ollieparanoid@postmarketos.org>
+           2021-2022 Arnaud Ferraris <aferraris@debian.org>
+           2025 Danny Colin
 License: MPL-2.0
 
 Files: src/mobile-config-prefs.js
-Copyright: 2021-2022, Oliver Smith <ollieparanoid@postmarketos.org>
-           2021-2022, Martijn Braam <martijn@brixit.nl>
+Copyright: 2021-2022 Oliver Smith <ollieparanoid@postmarketos.org>
+           2021-2022 Martijn Braam <martijn@brixit.nl>
 License: MPL-2.0
 
-Files: src/userChrome/browser.css
-Copyright: 2021-2022, plata
+Files: src/modules/*
+Copyright: 2025 Danny Colin
 License: MPL-2.0
 
-Files: src/userChrome/tabmenu.css
-Copyright: 2021-2022, Oliver Smith <ollieparanoid@postmarketos.org>
-           2021-2022, Peter Mack
+Files: src/themes/chrome/browser.css
+Copyright: 2021-2022 plata
 License: MPL-2.0
 
-Files: src/userContent/addons.css
-       src/userContent/config.css
-       src/userContent/license.css
-       src/userContent/logins.css
-       src/userContent/policies.css
-       src/userContent/preferences.css
-       src/userContent/protections.css
-       src/userContent/rights.css
-Copyright: 2021-2022, Anri Dellal
+Files: src/themes/chrome/popups.css
+Copyright: 2025 Oliver Smith
+           2025 Jesús Higueras
+           2025 user0
+           2025 Peter Mack
 License: MPL-2.0
 
-Files: src/userContent/reader.css
-Copyright: 2021-2022, Tim Magee
+Files: src/themes/chrome/tabcounter.css
+Copyright: 2024 user0
+           2024 Peter Mack
 License: MPL-2.0
 
-Files: src/userContent/sidebar.css
-Copyright: 2021-2022, plata
-           2021-2022, Anri Dellal
+Files: src/themes/chrome/tabmenu.css
+       src/themes/chrome/urlbar.css
+Copyright: 2021-2025 Oliver Smith <ollieparanoid@postmarketos.org>
+           2021-2025 Peter Mack
+License: MPL-2.0
+
+Files: src/themes/content/addons.css
+       src/themes/content/config.css
+       src/themes/content/license.css
+       src/themes/content/logins.css
+       src/themes/content/policies.css
+       src/themes/content/preferences.css
+       src/themes/content/protections.css
+       src/themes/content/rights.css
+Copyright: 2021-2022 Anri Dellal
+License: MPL-2.0
+
+Files: src/themes/content/reader.css
+Copyright: 2021-2022 Tim Magee
+License: MPL-2.0
+
+Files: src/themes/content/sidebar.css
+Copyright: 2021-2022 plata
+           2021-2022 Anri Dellal
+License: MPL-2.0
+
+Files: src/themes/main.css
+Copyright: 2025 Danny Colin
 License: MPL-2.0
 
 Files: org.postmarketos.mobile_config_firefox.metainfo.xml
-Copyright: 2022, plata
+Copyright: 2022 plata
 License: CC0-1.0
 
 License: CC0-1.0

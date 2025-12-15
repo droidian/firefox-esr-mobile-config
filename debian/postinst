@@ -3,13 +3,9 @@
 set -e
 
 if [ "$1" = "configure" ]; then
-    # This ensures the "last modified" date is updated, as it's needed
-    # for those files to upgrade
-    touch /etc/mobile-config-firefox/*/*.css
-
-    if [ -n "$2" ] && dpkg --compare-versions "$2" lt "4.6.0-4~"; then
-        echo "Removing leftover \*.css conf file"
-        rm -f -- '/etc/mobile-config-firefox/*.css'
+    if [ -n "$2" ] && dpkg --compare-versions "$2" lt "5.0.0-1~"; then
+        echo "Removing leftover conffiles"
+        rm -rf -- '/etc/mobile-config-firefox/'
     fi
 fi
 

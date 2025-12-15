@@ -51,7 +51,15 @@ lint_spaces() {
 
 lint_files() {
 	# shellcheck disable=SC3043
-	local files="$(find src -name '*.css' -o -name '*.js' -o -name '*.json')"
+	local files="$(find \
+		src \
+		-name '*.css' \
+		-o -name '*.js' \
+		-o -name '*.json' \
+		-o -name '*.sys.mjs' \
+		-o -name '*.html' \
+		-o -name '*.ftl' \
+		)"
 
 	if [ -z "$files" ]; then
 		echo "ERROR: no files to lint found in current work dir"
@@ -70,6 +78,9 @@ lint_files() {
 				;;
 			json)
 				lint_spaces
+				;;
+			*)
+				lint_spdx
 				;;
 		esac
 	done

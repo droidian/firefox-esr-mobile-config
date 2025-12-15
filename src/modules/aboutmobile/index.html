@@ -1,0 +1,129 @@
+<!doctype html>
+<!--
+# Copyright 2025 Danny Colin
+# SPDX-License-Identifier: MPL-2.0
+-->
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title data-l10n-id="aboutmobile-page-title">about:mobile</title>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src chrome:;
+                   img-src chrome: moz-icon: https: blob: data:;
+                   script-src resource: chrome:;
+                   style-src chrome: data:;
+                   object-src 'none'">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="chrome://global/skin/global.css">
+    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css">
+    <link
+        rel="stylesheet"
+        href="chrome://mobileconfigfirefox/content/aboutmobile/aboutmobile.css">
+    <script
+        src="chrome://mobileconfigfirefox/content/aboutmobile/aboutmobile.js">
+    </script>
+    <script
+        type="module"
+        src="chrome://global/content/elements/moz-page-nav.mjs">
+    </script>
+    <script
+        type="module"
+        src="chrome://global/content/elements/moz-fieldset.mjs">
+    </script>
+    <script
+        type="module"
+        src="chrome://global/content/elements/moz-toggle.mjs">
+    </script>
+    <script
+        type="module"
+        src="chrome://global/content/elements/moz-checkbox.mjs">
+    </script>
+    <link rel="localization" href="browser/aboutmobile/aboutmobile.ftl">
+</head>
+<body>
+    <h1 data-l10n-id="aboutmobile-page-title"></h1>
+    <p data-l10n-id="aboutmobile-page-description"></p>
+
+    <h2 data-l10n-id="aboutmobile-section-general-title"></h2>
+    <moz-fieldset>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-mcfMultipletabsEnable"
+            data-l10n-attrs="label, description"
+            data-preference="mcf.multipletabs"
+            data-preference-type="bool">
+        </moz-toggle>
+        <!-- TODO: Disable if mcf.multipletabs is false -->
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-mcfMultipletabsClose"
+            data-l10n-attrs="label, description"
+            data-preference="mcf.multipletabs.showclose"
+            data-preference-type="bool">
+        </moz-toggle>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-mcfTabcounterDisable"
+            data-l10n-attrs="label, description"
+            data-preference="mcf.tabcounter.enabled"
+            data-preference-type="bool">
+        </moz-toggle>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-mcfAddressbarontop"
+            data-l10n-attrs="label, description"
+            data-preference="mcf.addressbarontop"
+            data-preference-type="bool">
+        </moz-toggle>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-mcfFullappmenu"
+            data-l10n-attrs="label, description"
+            data-preference="mcf.fullappmenu"
+            data-preference-type="bool">
+        </moz-toggle>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-mcfShowprotectionsicon"
+            data-l10n-attrs="label, description"
+            data-preference="mcf.showprotectionsicon"
+            data-preference-type="bool">
+        </moz-toggle>
+        <!-- TODO does not always work. why? -->
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-browserUrlbarTrimHttps"
+            data-l10n-attrs="label, description"
+            data-preference="browser.urlbar.trimHttps"
+            data-preference-type="bool">
+        </moz-toggle>
+    </moz-fieldset>
+
+    <h2 data-l10n-id="aboutmobile-section-privacy-title"></h2>
+    <moz-fieldset>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preferences-appShieldOptoutstudiesEnabled"
+            data-l10n-attrs="label"
+            data-preference="app.shield.optoutstudies.enabled"
+            data-preference-type="bool">
+        </moz-toggle>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preferences-toolkitTelemetryEnabled"
+            data-l10n-attrs="label"
+            data-preference="toolkit.telemetry.enabled"
+            data-preference-type="bool">
+        </moz-toggle>
+    </moz-fieldset>
+    <!--
+        "DisablePocket": true,
+        "NoDefaultBookmarks": true,
+    -->
+    <!--
+        NOTE: Should we show preferences that are already available on other
+              about:pages? I guess it might make sense to be sure that the user
+              are aware of the default settings modified by Mobile Config Firefox
+    -->
+    <h2 data-l10n-id="aboutmobile-section-features-title"></h2>
+    <p data-l10n-id="aboutmobile-section-features-description"></p>
+    <moz-fieldset>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preferences-mediaVideocontrolsPictureInPictureEnabled"
+            data-l10n-attrs="label"
+            data-preference="media.videocontrols.picture-in-picture.enabled">
+        </moz-toggle>
+    </moz-fieldset>
+</body>
+</html>

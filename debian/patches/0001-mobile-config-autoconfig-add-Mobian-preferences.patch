@@ -4,20 +4,22 @@ Subject: [PATCH] mobile-config-autoconfig: add Mobian preferences
 
 Forwarded: not-needed
 ---
- src/mobile-config-autoconfig.js | 57 +++++++++++++++++++++++++++++++++++++++++
+ src/modules/boot.sys.mjs | 57 ++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 57 insertions(+)
 
---- a/src/mobile-config-autoconfig.js
-+++ b/src/mobile-config-autoconfig.js
-@@ -410,6 +410,63 @@
- 
-     // Disable download animations, save CPU
-     defaultPref('browser.download.animateNotifications', false);
+diff --git a/src/modules/boot.sys.mjs b/src/modules/boot.sys.mjs
+index 044c679..9117122 100644
+--- a/src/modules/boot.sys.mjs
++++ b/src/modules/boot.sys.mjs
+@@ -57,6 +57,63 @@ function set_default_preferences() {
+     PrefManager.defaultPref('mcf.addressbarontop', false);
+     PrefManager.defaultPref('mcf.fullappmenu', false);
+     PrefManager.defaultPref('mcf.showprotectionsicon', false);
 +
 +    // Default preferences for Debian (can be overridden by users)
 +
 +    // Allow Firefox accounts
-+    defaultPref("webchannel.allowObject.urlWhitelist", "https://accounts.firefox.com https://content.cdn.mozilla.net https://input.mozilla.org https://support.mozilla.org https://install.mozilla.org");
++    PrefManager.defaultPref("webchannel.allowObject.urlWhitelist", "https://accounts.firefox.com https://content.cdn.mozilla.net https://input.mozilla.org https://support.mozilla.org https://install.mozilla.org");
 +
 +    // Firefox is optimized for desktop.
 +    // Some desktop optimizations might slow things on mobile.
@@ -31,14 +33,14 @@ Forwarded: not-needed
 +    // Source: https://bit.ly/3dc4A7W
 +    // Default value: 4
 +    // Goal: Save CPU and RAM.
-+    defaultPref("dom.ipc.processCount", 1);
++    PrefManager.defaultPref("dom.ipc.processCount", 1);
 +
 +    // Disable prefetching.
 +    //
 +    // Source: https://bit.ly/3dc4A7W
 +    // Default value: true
 +    // Goal: Save bandwith
-+    defaultPref("network.prefetch-next", false);
++    PrefManager.defaultPref("network.prefetch-next", false);
 +
 +    // Limit content redraws.
 +    //
@@ -49,8 +51,8 @@ Forwarded: not-needed
 +    // Source: https://bit.ly/3hLX47p
 +    // Default value: 120000 (0.12s) / true
 +    // Goal: Speed up page loading
-+    defaultPref("content.notify.interval", 500000);
-+    defaultPref("content.notify.ontimer", true);
++    PrefManager.defaultPref("content.notify.interval", 500000);
++    PrefManager.defaultPref("content.notify.ontimer", true);
 +
 +    // Reduce the content switch threshold.
 +    //
@@ -61,7 +63,7 @@ Forwarded: not-needed
 +    // Source: https://bit.ly/3hLX47p
 +    // Default value: 750000 (0.75s)
 +    // Goal: Speed up page loading
-+    defaultPref("content.switch.threshold", 250000);
++    PrefManager.defaultPref("content.switch.threshold", 250000);
 +
 +    // Reduce the number of visited web pages stored in memory,
 +    // which you can access using the Back and Forward buttons.
@@ -69,7 +71,7 @@ Forwarded: not-needed
 +    // Source: https://bit.ly/3dc4A7W
 +    // Default value: -1 (adaptable)
 +    // Goal: Save RAM
-+    defaultPref("browser.sessionhistory.max_total_viewers", 1);
++    PrefManager.defaultPref("browser.sessionhistory.max_total_viewers", 1);
  }
  
- function main() {
+ /**

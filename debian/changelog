@@ -1,8 +1,22 @@
-firefox-esr-mobile-config (5.0.0-1) UNRELEASED; urgency=medium
+firefox-esr-mobile-config (5.0.0-1) unstable; urgency=medium
 
   * New upstream version
+  * d/patches: update for new upstream version.
+    Our patch adding a few default preference values didn't apply anymore as
+    those moved from `mobile-config-autoconfig.js` to `modules/boot.sys.mjs`
+    in upstream's latest release; refresh the patch by targeting the new
+    file.
+  * d/lintian-overrides: update for new upstream version
+  * d/copyright: update for new upstream version.
+    The latest release underwent a significant rewrite, with a new
+    contributor being responsible from most of those changes, so the diff is
+    quite big this time.
+  * d/postinst: update for new upstream version.
+    Previous versions of this package used to rely on conffiles, which moved
+    under `/usr/lib` in the current version. Delete the old conffiles
+    as they're not needed anymore and would only be confusing.
 
- -- Arnaud Ferraris <aferraris@debian.org>  Mon, 15 Dec 2025 11:21:08 +0100
+ -- Arnaud Ferraris <aferraris@debian.org>  Mon, 15 Dec 2025 15:58:59 +0100
 
 firefox-esr-mobile-config (4.6.1-1) unstable; urgency=medium
 

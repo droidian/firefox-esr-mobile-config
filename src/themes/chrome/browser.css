@@ -2,8 +2,7 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
-    @media not (-moz-bool-pref: "mcf.addressbarontop"),
-        not (-moz-pref("mcf.addressbarontop")) {
+    @media not (-moz-pref("mcf.addressbarontop")) {
         /* Move navigation bar to bottom */
         #browser {
             order: -1 !important; /* since FF 113 */

@@ -2,45 +2,29 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
-    /* Make sure that we don't waste space on the right.
-     * This can removed once we no longer support ESR 128 */
-    #titlebar {
-        padding-right: 0px;
-    }
-
-
     /* Increase tab width, to have more space for displaying the title of the
-     * website, supporting uidensity=touch
+     * website, supporting uidensity=touch - FF 144+ will no longer need
+     * specific values for uidensity=touch.
      * Note that -94px/-124px would be enough for current (136), but ESR 128
-     * requires more (-102px/-132px)
-     * FF137+ needs --tab-*-width-pref */
+     * requires more (-102px/-132px) */
     #tabbrowser-tabs {
         border-inline-start: 0 !important;
-        --tab-min-width: calc(100vw - 86px) !important;
         --tab-min-width-pref: calc(100vw - 86px) !important;
 
         :root[uidensity=touch] & {
-            --tab-min-width: calc(100vw - 102px) !important;
             --tab-min-width-pref: calc(100vw - 102px) !important;
         }
     }
 
     /* Smaller tab width to allow for private browsing indicator */
     :root[privatebrowsingmode="temporary"] #tabbrowser-tabs {
-        --tab-min-width: calc(100vw - 116px) !important; /* width */
         --tab-min-width-pref: calc(100vw - 116px) !important; /* width */
 
         :root[uidensity=touch] & {
-            --tab-min-width: calc(100vw - 132px) !important;
             --tab-min-width-pref: calc(100vw - 132px) !important;
         }
     }
 
-    /* Fix private browsing mode for Firefox 115-132 */
-    #private-browsing-indicator-with-label {
-        margin-inline: 2px !important;
-        font-size: 0;
-    }
     /* Fix private browsing mode for current Firefox >= 133 */
     hbox.private-browsing-indicator-with-label label {
         display: none;
@@ -52,10 +36,10 @@
     }
 
     /* Option to show multiple tabs in tab bar */
-    @media (-moz-bool-pref: "mcf.multipletabs"),
-        -moz-pref("mcf.multipletabs") {
+    @media -moz-pref("mcf.multipletabs") {
         /* Set small tabs width for small screens */
-        #tabbrowser-tabs {
+        #tabbrowser-tabs,
+        :root[privatebrowsingmode="temporary"] #tabbrowser-tabs {
             --tab-min-width: 75px !important;
             --tab-min-width-pref: 75px !important;
             --tab-max-width: 150px !important;
@@ -72,34 +56,20 @@
         }
 
         /* Optionally show close button on all tabs */
-        @media (-moz-bool-pref: "mcf.multipletabs.showclose"),
-            not (-moz-pref("mcf.multipletabs.showclose")) {
+        @media -moz-pref("mcf.multipletabs.showclose") {
             .tab-close-button, .close-icon, #tabbrowser-tabs[closebuttons="activetab"][orient="horizontal"] &:not([selected]) {
                 display: block !important;
             }
         }
     }
 
-    @media not (-moz-bool-pref: "mcf.addressbarontop"),
-        not (-moz-pref("mcf.addressbarontop")) {
+    @media not (-moz-pref("mcf.addressbarontop")) {
         /* Rotate the arrow on the "all tabs" button to point upwards, since the
          * tabs and searchbar were moved to the bottom. */
-        @media (-moz-bool-pref: "mcf.tabcounter.disable"),
-            -moz-pref("mcf.tabcounter.disable") {
+        @media -moz-pref("mcf.tabcounter.disable") {
             #alltabs-button {
                 transform: rotate(180deg) !important;
             }
-        }
-
-        /* Similar hack to what's in appMenu.css to properly spawn the "all tabs"
-         * popup above the navigation menu */
-        #customizationui-widget-panel {
-            /* Further up than appmenu, because the "all tabs" button that spawns
-             * this menu is above the hamburger button that spawns the regular
-             * menu. */
-            margin-top: -360px !important;
-            height: 320px;
-            max-height: 320px;
         }
     }
 
@@ -112,29 +82,5 @@
     #allTabsMenu-searchTabs,
     #allTabsMenu-tabsSeparator {
         display: none;
-    }
-
-    #allTabsMenu-allTabsView vbox.panel-subview-body {
-        /* Use the whole height */
-        height: 300px !important;
-        max-height: 300px !important;
-    }
-
-    #allTabsMenu-allTabsView vbox.panel-subview-body:first-child {
-        /* the allTabsMenu has a vbox.panel-subview-body inside another one.
-         * With -moz-box-flex: initial, it will show a scroll bar in each, but
-         * we only want one scrollbar. */
-        overflow-y: hidden !important;
-    }
-
-    #customizationui-widget-multiview box.panel-viewstack { /* since FF 113 */
-        /* Use the whole height */
-        height: 300px !important;
-        max-height: 300px !important;
-    }
-
-    #allTabsMenu-allTabsView-tabs { /* since FF 106 */
-        /* Make sure tabs with long titles don't exceed the all tabs menu */
-        max-width: calc(100vw - 20px);
     }
 }

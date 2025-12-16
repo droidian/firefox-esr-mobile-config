@@ -4,4 +4,5 @@
 	dh $@
 
 override_dh_auto_install:
-	dh_auto_install -- FIREFOX_DIR=/usr/lib/firefox-esr
+	dh_auto_install -- FIREFOX_DIR=/usr/lib/firefox-esr \
+	                   FIREFOX_SHARE_DIR=/usr/share/firefox-esr

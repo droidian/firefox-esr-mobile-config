@@ -1,0 +1,33 @@
+From: Arnaud Ferraris <aferraris@debian.org>
+Date: Tue, 16 Dec 2025 10:14:06 +0100
+Subject: Makefile: install policies to /usr/share
+
+On Debian, `/usr/lib/firefox/distribution` is a symlink to
+`/usr/share/firefox/distribution`, causing piuparts to error out when
+installing the `policies.json` file to the former location. Change the
+install path to the `/usr/share` folder in order to fix this error.
+---
+ Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 75a1b8c..95cd01a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -3,6 +3,7 @@
+ 
+ DESTDIR :=
+ FIREFOX_DIR := /usr/lib/firefox
++FIREFOX_SHARE_DIR := /usr/share/firefox
+ FIREFOX_CONFIG_DIR := /usr/lib/mobile-config-firefox
+ 
+ dummy:
+@@ -12,7 +13,7 @@ install:
+ 	src/prepare_install.sh "$(FIREFOX_DIR)" "$(DESTDIR)"
+ 	# Firefox Policies
+ 	install -Dm644 src/policies.json \
+-		"$(DESTDIR)/$(FIREFOX_DIR)/distribution/policies.json"
++		"$(DESTDIR)/$(FIREFOX_SHARE_DIR)/distribution/policies.json"
+ 	# Mobile Config Firefox
+ 	install -Dm644 src/mobile-config-prefs.js \
+ 		"$(DESTDIR)/$(FIREFOX_DIR)/defaults/pref/mobile-config-prefs.js"

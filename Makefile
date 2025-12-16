@@ -10,8 +10,10 @@ dummy:
 
 install:
 	src/prepare_install.sh "$(FIREFOX_DIR)" "$(DESTDIR)"
+	# Firefox Policies
 	install -Dm644 src/policies.json \
-		"$(DESTDIR)/$(FIREFOX_CONFIG_DIR)/policies/policies.json"
+		"$(DESTDIR)/$(FIREFOX_DIR)/distribution/policies.json"
+	# Mobile Config Firefox
 	install -Dm644 src/mobile-config-prefs.js \
 		"$(DESTDIR)/$(FIREFOX_DIR)/defaults/pref/mobile-config-prefs.js"
 	install -Dm644 src/mobile-config-autoconfig.js \

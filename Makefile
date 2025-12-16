@@ -3,6 +3,7 @@
 
 DESTDIR :=
 FIREFOX_DIR := /usr/lib/firefox
+FIREFOX_SHARE_DIR := /usr/share/firefox
 MCF_DIR := /usr/lib/mobile-config-firefox
 
 FLATPAK :=
@@ -16,7 +17,7 @@ MCF_DIR := $(FLATPAK_EXT_DIR)/mobile-config-firefox
 POLICIES_DIR := $(FIREFOX_DIR)/policies
 MODE := flatpak
 else
-POLICIES_DIR := $(FIREFOX_DIR)/distribution
+POLICIES_DIR := $(FIREFOX_SHARE_DIR)/distribution
 MODE := native
 endif
 

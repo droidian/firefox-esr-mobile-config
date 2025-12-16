@@ -1,3 +1,13 @@
+firefox-esr-mobile-config (5.0.1-2) unstable; urgency=medium
+
+  * debian: fix policies install path.
+    On Debian, `/usr/lib/firefox/distribution` is a symlink to
+    `/usr/share/firefox/distribution`, causing piuparts to error out when
+    installing the `policies.json` file to the former location. Change the
+    install path to the `/usr/share` folder in order to fix this error.
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Tue, 16 Dec 2025 10:16:35 +0100
+
 firefox-esr-mobile-config (5.0.1-1) unstable; urgency=medium
 
   * New upstream version

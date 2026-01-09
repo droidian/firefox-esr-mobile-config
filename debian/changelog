@@ -1,8 +1,18 @@
-firefox-esr-mobile-config (5.1.0-1) UNRELEASED; urgency=medium
+firefox-esr-mobile-config (5.1.0-1) unstable; urgency=medium
 
   * New upstream version
+  * d/copyright: update for new release.
+    Many (theme) files were moved around and a few ones were added, ensure
+    our information is up-to-date.
+  * d/patches: refresh for new upstream version
+  * d/lintian-overrides: update for new release.
+    One of the files referenced in `lintian-overrides` was moved to a new
+    location in this release.
+  * d/control: drop Priority and bump Standards-Version
+    `Priority: optional` is no longer needed as of Debian Policy 4.7.3, so
+    drop that field and bump Standards-Version accordingly.
 
- -- Arnaud Ferraris <aferraris@debian.org>  Fri, 09 Jan 2026 12:05:29 +0100
+ -- Arnaud Ferraris <aferraris@debian.org>  Fri, 09 Jan 2026 12:25:17 +0100
 
 firefox-esr-mobile-config (5.0.1-2) unstable; urgency=medium
 

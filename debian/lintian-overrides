@@ -1,4 +1,4 @@
 # This file isn't a license file but a source file
-firefox-esr-mobile-config: extra-license-file [usr/lib/mobile-config-firefox/themes/content/license.css]
+firefox-esr-mobile-config: extra-license-file [usr/lib/mobile-config-firefox/themes/shared/content/license.css]
 # This isn't documentation but a source file
 firefox-esr-mobile-config: package-contains-documentation-outside-usr-share-doc [usr/lib/mobile-config-firefox/aboutmobile/index.html]

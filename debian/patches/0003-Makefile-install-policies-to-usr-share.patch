@@ -19,7 +19,7 @@ index 75a1b8c..95cd01a 100644
  DESTDIR :=
  FIREFOX_DIR := /usr/lib/firefox
 +FIREFOX_SHARE_DIR := /usr/share/firefox
- FIREFOX_CONFIG_DIR := /usr/lib/mobile-config-firefox
+ MCF_DIR := /usr/lib/mobile-config-firefox
  
  dummy:
 @@ -12,7 +13,7 @@ install:

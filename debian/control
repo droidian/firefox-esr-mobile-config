@@ -1,11 +1,10 @@
 Source: firefox-esr-mobile-config
 Section: x11
-Priority: optional
 Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
 Uploaders: Jarrah Gosbell <debian@undef.tools>,
            Arnaud Ferraris <aferraris@debian.org>,
 Build-Depends: debhelper-compat (= 13)
-Standards-Version: 4.7.2
+Standards-Version: 4.7.3
 Homepage: https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox
 Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/firefox-esr-mobile-config
 Vcs-Git: https://salsa.debian.org/DebianOnMobile-team/firefox-esr-mobile-config.git

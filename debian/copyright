@@ -26,49 +26,52 @@ Files: src/modules/*
 Copyright: 2025 Danny Colin
 License: MPL-2.0
 
-Files: src/themes/chrome/browser.css
+Files: src/themes/shared/chrome/browser.css
 Copyright: 2021-2022 plata
 License: MPL-2.0
 
-Files: src/themes/chrome/popups.css
+Files: src/themes/shared/chrome/popups.css
 Copyright: 2025 Oliver Smith
            2025 Jesús Higueras
            2025 user0
            2025 Peter Mack
 License: MPL-2.0
 
-Files: src/themes/chrome/tabcounter.css
+Files: src/themes/shared/chrome/tabcounter.css
 Copyright: 2024 user0
            2024 Peter Mack
 License: MPL-2.0
 
-Files: src/themes/chrome/tabmenu.css
-       src/themes/chrome/urlbar.css
+Files: src/themes/release/chrome/tabmenu.css
+       src/themes/shared/chrome/tabmenu.css
+       src/themes/shared/chrome/urlbar.css
 Copyright: 2021-2025 Oliver Smith <ollieparanoid@postmarketos.org>
            2021-2025 Peter Mack
 License: MPL-2.0
 
-Files: src/themes/content/addons.css
-       src/themes/content/config.css
-       src/themes/content/license.css
-       src/themes/content/logins.css
-       src/themes/content/policies.css
-       src/themes/content/preferences.css
-       src/themes/content/protections.css
-       src/themes/content/rights.css
+Files: src/themes/shared/content/addons.css
+       src/themes/shared/content/config.css
+       src/themes/shared/content/license.css
+       src/themes/shared/content/logins.css
+       src/themes/shared/content/policies.css
+       src/themes/shared/content/preferences.css
+       src/themes/shared/content/protections.css
+       src/themes/shared/content/rights.css
 Copyright: 2021-2022 Anri Dellal
 License: MPL-2.0
 
-Files: src/themes/content/reader.css
+Files: src/themes/shared/content/reader.css
 Copyright: 2021-2022 Tim Magee
 License: MPL-2.0
 
-Files: src/themes/content/sidebar.css
+Files: src/themes/shared/content/sidebar.css
 Copyright: 2021-2022 plata
            2021-2022 Anri Dellal
 License: MPL-2.0
 
-Files: src/themes/main.css
+Files: src/themes/esr/main.css
+       src/themes/release/main.css
+       src/themes/shared/main.css
 Copyright: 2025 Danny Colin
 License: MPL-2.0
 

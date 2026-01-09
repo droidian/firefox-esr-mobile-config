@@ -1,3 +1,9 @@
+firefox-esr-mobile-config (5.1.0-1) UNRELEASED; urgency=medium
+
+  * New upstream version
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Fri, 09 Jan 2026 12:05:29 +0100
+
 firefox-esr-mobile-config (5.0.1-2) unstable; urgency=medium
 
   * debian: fix policies install path.

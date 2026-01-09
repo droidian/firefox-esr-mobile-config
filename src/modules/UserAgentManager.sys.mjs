@@ -25,7 +25,7 @@ export class UserAgentManager {
         // FIX: Google login not trusting the browser
         "^https?://accounts.google.com($|/)": UA_FIREFOX_DESKTOP,
         // FIX: Google Search showing up as the old layout
-        "^https?://(wwww.)?google.com($|/)": UA_FIREFOX_ANDROID,
+        "^https?://(www.)?google.com($|/)": UA_FIREFOX_ANDROID,
         // FIX: ???
         "^https?://drive.google.com($|/)": UA_CHROME_ANDROID,
         // FIX: Google Maps search bar not being interactive

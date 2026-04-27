@@ -6,11 +6,11 @@ Upstream is a bit extreme in removing all search engines but one. Leave
 that choice to the user. Also, don't install ublock through global
 policy as Mobian installs it by default.
 ---
- src/policies.json | 109 ------------------------------------------------------
- 1 file changed, 109 deletions(-)
+ src/policies.json | 110 ------------------------------------------------------
+ 1 file changed, 110 deletions(-)
 
 diff --git a/src/policies.json b/src/policies.json
-index 65b68b6..fa6bef0 100644
+index f90cc8b..fa6bef0 100644
 --- a/src/policies.json
 +++ b/src/policies.json
 @@ -23,108 +23,6 @@
@@ -122,7 +122,7 @@ index 65b68b6..fa6bef0 100644
          "Preferences": {
              "dom.private-attribution.submission.enabled": {
                  "Value": false,
-@@ -138,13 +36,6 @@
+@@ -138,14 +36,6 @@
              "FeatureRecommendations": false,
              "UrlbarInterventions": false,
              "SkipOnboarding": false
@@ -131,7 +131,8 @@ index 65b68b6..fa6bef0 100644
 -        "ExtensionSettings": {
 -            "uBlock0@raymondhill.net": {
 -                "installation_mode": "normal_installed",
--                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
+-                "default_area": "menupanel"
 -            }
          }
      }

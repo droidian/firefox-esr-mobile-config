@@ -8,13 +8,13 @@ Forwarded: not-needed
  1 file changed, 57 insertions(+)
 
 diff --git a/src/modules/boot.sys.mjs b/src/modules/boot.sys.mjs
-index 044c679..9117122 100644
+index ffe3c2d..6840172 100644
 --- a/src/modules/boot.sys.mjs
 +++ b/src/modules/boot.sys.mjs
-@@ -57,6 +57,63 @@ function set_default_preferences() {
-     PrefManager.defaultPref('mcf.addressbarontop', false);
-     PrefManager.defaultPref('mcf.fullappmenu', false);
-     PrefManager.defaultPref('mcf.showprotectionsicon', false);
+@@ -68,6 +68,63 @@ function set_default_preferences() {
+     PrefManager.defaultPref('mcf.appmenu.showAllEntries', false);
+     PrefManager.defaultPref('mcf.contextmenu.showInspector', false);
+     PrefManager.defaultPref('mfc.urlbar.showTrustButton', false);
 +
 +    // Default preferences for Debian (can be overridden by users)
 +

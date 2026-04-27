@@ -11,7 +11,7 @@ install path to the `/usr/share` folder in order to fix this error.
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 75a1b8c..95cd01a 100644
+index 4c6dc1b..df0bbee 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -3,6 +3,7 @@

@@ -1,8 +1,17 @@
-firefox-esr-mobile-config (5.2.0-1) UNRELEASED; urgency=medium
+firefox-esr-mobile-config (5.2.0-1) unstable; urgency=medium
 
   * New upstream version
+  * d/patches: refresh for new upstream release
+  * d/copyright: refresh for new upstream release
+  * debian: update upstream URLs according to metainfo.
+    Upstream now provides a documentation website for this package and
+    changed the metainfo file to point there as the project's homepage,
+    let's do the same for the homepage link stored in Debian. Also update
+    the upstream metadata so the URLs point to the actual Gitlab instance
+    hosting this project.
+  * d/lintian-overrides: add new override for false positive
 
- -- Arnaud Ferraris <aferraris@debian.org>  Mon, 27 Apr 2026 11:46:26 +0200
+ -- Arnaud Ferraris <aferraris@debian.org>  Mon, 27 Apr 2026 12:25:04 +0200
 
 firefox-esr-mobile-config (5.1.0-2) unstable; urgency=medium
 

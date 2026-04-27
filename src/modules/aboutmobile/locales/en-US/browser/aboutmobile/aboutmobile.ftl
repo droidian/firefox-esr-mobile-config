@@ -9,27 +9,27 @@ aboutmobile-page-description = Customize your Mobile Config Firefox installation
 # General Section
 aboutmobile-section-general-title = General
 
-aboutmobile-preference-mcfMultipletabsEnable =
-    .label = Multiple tabs
-    .description = Show all opened tabs in the Tab Bar
+aboutmobile-preference-mcfShowFocusedTabOnlyEnable =
+    .label = Show focused tab only
+    .description = Don't show multiple tabs, only show the active tab in the Tab Bar (horizontal tabs only)
 
-aboutmobile-preference-mcfMultipletabsClose =
+aboutmobile-preference-mcfTabsAlwaysShowCloseButton =
     .label = Tab close button
     .description = Show a close button on each tab
 
-aboutmobile-preference-mcfTabcounterDisable =
+aboutmobile-preference-mcfToolbarTabCounterEnable =
     .label = Show tab counter
     .description = Show the number of opened tabs on the list all tabs icon
 
-aboutmobile-preference-mcfAddressbarontop =
+aboutmobile-preference-mcfToolbarPositionOnTop =
     .label = Address Bar on top
     .description = Show Address Bar at the top of the browser
 
-aboutmobile-preference-mcfShowprotectionsicon =
+aboutmobile-preference-mcfShowTrustButton =
     .label = Show Protections icon
     .description = Show Protections icon in the address bar
 
-aboutmobile-preference-mcfFullappmenu =
+aboutmobile-preference-mcfAppmenuShowAllEntries =
     .label = Show full App Menu
     .description = Don't hide any items in App Menu
 
@@ -52,3 +52,6 @@ aboutmobile-section-features-description = By default, Mobile Config Firefox dis
 
 aboutmobile-preferences-mediaVideocontrolsPictureInPictureEnabled =
     .label = Disable Picture-in-Picture
+
+aboutmobile-preference-mcfContextmenuShowInspector =
+    .label = Show Inspect in Context Menu

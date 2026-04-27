@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
-    @media not (-moz-pref("mcf.addressbarontop")) {
+    @media not (-moz-pref("mcf.toolbar.positionOnTop")) {
         /* If the navbar is at the bottom, we need to set an offset to have
          * the notifications (like the one for installing addons) displayed
          * on-screen. */
@@ -63,7 +63,7 @@
     }
 }
 
-@media ((min-width: 701px) or (-moz-pref("mcf.addressbarontop"))) {
+@media ((min-width: 701px) or (-moz-pref("mcf.toolbar.positionOnTop"))) {
     panel, box.panel-viewcontainer > box.panel-viewstack {
         align-content: flex-start;
     }
@@ -80,7 +80,7 @@
  * incorrectly.
  */
 
-@media not (-moz-pref("mcf.fullappmenu")) {
+@media not (-moz-pref("mcf.appmenu.showAllEntries")) {
     #appMenu-extensions-themes-button,
     #appMenu-passwords-button,
     #appMenu-help-button2,
@@ -93,17 +93,23 @@
 
 /* Hide some context menu items,
  * hide 'Customize Toolbar' in overflow menu */
-#context-inspect,
 #context-inspect-a11y,
 #context-savelinktopocket,
 #context-searchselect,
 #context-sendlinktodevice,
 #context-viewpartialsource-selection,
-#inspect-separator,
 #context-sep-selectall,
 #frame-sep,
 #overflowMenu-customize-button {
     display: none !important
+}
+
+/* Hide by default, but optionally unhide Inspector */
+@media not (-moz-pref("mcf.contextmenu.showInspector")) {
+    #context-inspect,
+    #inspect-separator {
+        display: none !important
+    }
 }
 
 menupopup {
@@ -113,15 +119,6 @@ menupopup {
     block-size: max-content !important;
     max-block-size: max-content !important;
     min-block-size: max-content !important;
-}
-
-.menupopup-arrowscrollbox {
-    width: max-content !important;
-    max-width: calc(100vw - 16px) !important;
-    height: max-content !important;
-    max-height: calc(100vh - 16px) !important;
-    display: block !important;
-    overflow: clip !important;
 }
 
 /* Fix webextension popups */

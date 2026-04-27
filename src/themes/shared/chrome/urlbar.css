@@ -31,6 +31,18 @@
         display: none !important;
     }
 
+    /* Show sidebar-button when vertical tabs are enabled */
+    @media -moz-pref("sidebar.verticalTabs") {
+        #sidebar-button {
+            display: flex !important;
+        }
+        /* Hide spacer and alltabs-button*/
+        #alltabs-button,
+        #vertical-spacer {
+            display: none;
+        }
+    }
+
     #urlbar {
         padding: 0px 5px;
     }
@@ -48,7 +60,7 @@
     }
 
     /* hide protections container by default */
-    @media not (-moz-pref("mcf.showprotectionsicon")) {
+    @media not (-moz-pref("mfc.urlbar.showTrustButton")) {
         #tracking-protection-icon-container {
             display: none !important;
         }
@@ -76,14 +88,14 @@
         z-index: 5 !important;
     }
 
-    @media not (-moz-pref("mcf.addressbarontop")) {
+    @media not (-moz-pref("mcf.toolbar.positionOnTop")) {
         #urlbar[breakout][breakout-extend] {
             top: 0 !important;
             align-content: flex-end !important;
         }
     }
 
-    @media -moz-pref("mcf.addressbarontop") {
+    @media -moz-pref("mcf.toolbar.positionOnTop") {
         #urlbar[breakout][breakout-extend] {
             top: calc(1.1 * --urlbar-container-height) !important;
             align-content: flex-start !important;
@@ -112,7 +124,7 @@
         scrollbar-width: none;
     }
 
-    @media not (-moz-pref("mcf.addressbarontop")) {
+    @media not (-moz-pref("mcf.toolbar.positionOnTop")) {
         .urlbarView {
             inset: 0px 0px 84px 0px;
         }
@@ -133,6 +145,22 @@
      * prevent this, set the height of the overlapped toolbar to 0. */
     :root {
         --bookmarks-toolbar-overlapping-browser-height: 0 !important;
+    }
+
+    /* Smaller private browsing indicator with vertical tabs */
+    @media -moz-pref("sidebar.verticalTabs") {
+        .private-browsing-indicator-icon {
+            width: 10px !important;
+            height: 10px !important;
+        }
+        .private-browsing-indicator-with-label {
+            align-items: unset !important;
+            margin-inline: 0 !important;
+        }
+
+        :root[privatebrowsingmode="temporary"] #PanelUI-menu-button {
+            padding-right: 0 !important;
+        }
     }
 }
 

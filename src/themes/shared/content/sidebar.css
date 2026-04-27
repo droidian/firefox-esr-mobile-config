@@ -11,6 +11,7 @@
         :root {
             --in-content-sidebar-width: 50px !important;
             --sidebar-width: 50px !important;
+            --size-sidebar-narrow: 50px !important;
         }
 
         /* reduce space around category icons */

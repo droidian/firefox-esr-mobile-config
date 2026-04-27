@@ -31,6 +31,9 @@ install:
 	# StyleSheetManager
 	install -Dm644 src/modules/StyleSheetManager.sys.mjs \
 		"$(DESTDIR)/$(MCF_DIR)/StyleSheetManager.sys.mjs"
+	# TabCounter
+	install -Dm644 src/modules/TabCounter.sys.mjs \
+		"$(DESTDIR)/$(MCF_DIR)/TabCounter.sys.mjs"
 	## Shared theme
 	install -dm755 "$(DESTDIR)/$(MCF_DIR)/themes/shared/chrome/"
 	install -dm755 "$(DESTDIR)/$(MCF_DIR)/themes/shared/content/"

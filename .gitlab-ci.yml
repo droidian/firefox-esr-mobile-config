@@ -15,3 +15,22 @@ lint:
     - apk -q add grep
   script:
     - .ci/lint.sh
+
+docs:
+  before_script:
+    - "adduser -D build"
+  script:
+    - ".ci/docs.sh"
+  artifacts:
+    paths:
+      - public
+
+deploy-docs:
+  stage: deploy
+  trigger:
+    project: postmarketOS/docs.postmarketos.org
+    strategy: depend
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PROJECT_NAMESPACE == "postmarketOS"
+      changes:
+        - docs/**/*

@@ -4,7 +4,9 @@
 
   <name>Mobile Config for Firefox</name>
   <summary>Mobile and privacy friendly configuration for Firefox (distro-independent)</summary>
-  <url type="homepage">https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox</url>
+  <url type="homepage">https://docs.postmarketos.org/mobile-config-firefox/main/index.html</url>
+  <url type="bugtracker">https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox/-/issues</url>
+  <url type="vcs-browser">https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox</url>
 
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MPL-2.0</project_license>
@@ -18,4 +20,13 @@
       UI optimizations to allow using Firefox on mobile devices (i.e. small touch screen), including two finger zoom and enforcing of mobile user agent. Privacy enhancements such as disabled search suggestions, disabled Firefox studies, disabled Telemetry and DuckDuckGo as default search engine.
     </p>
   </description>
+
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
 </component>

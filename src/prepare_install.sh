@@ -9,7 +9,6 @@ if ! [ -d "$FIREFOX_DIR"/browser ]; then
 		echo "       regular Firefox."
 		echo
 		echo "Run this instead:"
-		echo "$ make"
 		echo "$ sudo make FIREFOX_DIR=$FIREFOX_DIR-esr install"
 		echo
 		exit 1
@@ -28,7 +27,6 @@ if [ -z "$DESTDIR" ] && [ "$(id -u)" != 0 ]; then
 	echo
 	echo "ERROR: run make install as root!"
 	echo
-	echo "$ make"
 	echo "$ sudo make FIREFOX_DIR=$FIREFOX_DIR install"
 	echo
 	exit 1

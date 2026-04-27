@@ -21,6 +21,9 @@ const { StyleSheetManager } = ChromeUtils.importESModule(
 const { AboutMobile } = ChromeUtils.importESModule(
     'chrome://mobileconfigfirefox/content/AboutMobile.sys.mjs'
 );
+const { TabCounter } = ChromeUtils.importESModule(
+    'chrome://mobileconfigfirefox/content/TabCounter.sys.mjs'
+);
 
 const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
@@ -35,9 +38,14 @@ ChromeUtils.defineESModuleGetters(lazy, {
 function set_default_preferences() {
     PrefManager.defaultPref('apz.allow_zooming', true);
     PrefManager.defaultPref('apz.allow_double_tap_zooming', true);
+    PrefManager.defaultPref('browser.ai.control.default', 'blocked');
+    PrefManager.defaultPref('browser.ai.control.translations', 'available');
     PrefManager.defaultPref('browser.download.animateNotifications', false);
+    PrefManager.defaultPref('browser.ml.chat.enabled', false);
+    PrefManager.defaultPref('browser.ml.chat.menu', false);
     PrefManager.defaultPref('browser.newtabpage.enabled', false);
     PrefManager.defaultPref('browser.search.suggest.enabled', false);
+    PrefManager.defaultPref('browser.tabs.hoverPreview.enabled', false);
     PrefManager.defaultPref('browser.tabs.inTitlebar', 1);
     PrefManager.defaultPref('browser.urlbar.clickSelectsAll', true);
     PrefManager.defaultPref('browser.urlbar.suggest.engines', false);
@@ -47,16 +55,19 @@ function set_default_preferences() {
     PrefManager.defaultPref('dom.w3c_touch_events.legacy_apis.enabled', true);
     PrefManager.defaultPref('media.webrtc.camera.allow-pipewire', true);
     PrefManager.defaultPref("screenshots.browser.component.enabled", false);
+    PrefManager.defaultPref('sidebar.main.tools', 'aichat');
+    PrefManager.defaultPref('sidebar.verticalTabs.dragToPinPromo.dismissed', true);
     PrefManager.defaultPref('toolkit.cosmeticAnimations.enabled', false);
     PrefManager.defaultPref('toolkit.legacyUserProfileCustomizations.stylesheets', true);
     PrefManager.defaultPref('widget.use-xdg-desktop-portal.file-picker', 1);
 
-    PrefManager.defaultPref('mcf.multipletabs', false);
-    PrefManager.defaultPref('mcf.multipletabs.showclose', false);
-    PrefManager.defaultPref('mcf.tabcounter.enabled', false);
-    PrefManager.defaultPref('mcf.addressbarontop', false);
-    PrefManager.defaultPref('mcf.fullappmenu', false);
-    PrefManager.defaultPref('mcf.showprotectionsicon', false);
+    PrefManager.defaultPref('mcf.tabs.showFocusedTabOnly.enabled', true);
+    PrefManager.defaultPref('mcf.tabs.alwaysShowCloseButton', false);
+    PrefManager.defaultPref('mcf.toolbar.tabCounter.enabled', true);
+    PrefManager.defaultPref('mcf.toolbar.positionOnTop', false);
+    PrefManager.defaultPref('mcf.appmenu.showAllEntries', false);
+    PrefManager.defaultPref('mcf.contextmenu.showInspector', false);
+    PrefManager.defaultPref('mfc.urlbar.showTrustButton', false);
 }
 
 /**
@@ -120,6 +131,12 @@ function register_fluent_sources() {
         // - Can we target chrome or content context separately?
         //   See: https://searchfox.org/mozilla-central/source/dom/interfaces/base/nsIDOMWindowUtils.idl#1891-1915
         const stylesheet = new StyleSheetManager();
+        try {
+            const tabCounter = new TabCounter();
+            tabCounter.init();
+        } catch(e) {
+            console.error("TabCounter failed to initialize:", e);
+        }
         // TODO:
         // - Fix CSP issue that prevents to load our styles/scripts in about:mobile
         register_about_mobile();

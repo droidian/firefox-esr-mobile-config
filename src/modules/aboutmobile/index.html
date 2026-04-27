@@ -47,40 +47,40 @@
     <h2 data-l10n-id="aboutmobile-section-general-title"></h2>
     <moz-fieldset>
         <moz-toggle
-            data-l10n-id="aboutmobile-preference-mcfMultipletabsEnable"
+            data-l10n-id="aboutmobile-preference-mcfShowFocusedTabOnlyEnable"
             data-l10n-attrs="label, description"
-            data-preference="mcf.multipletabs"
+            data-preference="mcf.tabs.showFocusedTabOnly.enabled"
             data-preference-type="bool">
         </moz-toggle>
         <!-- TODO: Disable if mcf.multipletabs is false -->
         <moz-toggle
-            data-l10n-id="aboutmobile-preference-mcfMultipletabsClose"
+            data-l10n-id="aboutmobile-preference-mcfTabsAlwaysShowCloseButton"
             data-l10n-attrs="label, description"
-            data-preference="mcf.multipletabs.showclose"
+            data-preference="mcf.tabs.alwaysShowCloseButton"
             data-preference-type="bool">
         </moz-toggle>
         <moz-toggle
-            data-l10n-id="aboutmobile-preference-mcfTabcounterDisable"
+            data-l10n-id="aboutmobile-preference-mcfToolbarTabCounterEnable"
             data-l10n-attrs="label, description"
-            data-preference="mcf.tabcounter.enabled"
+            data-preference="mcf.toolbar.tabCounter.enabled"
             data-preference-type="bool">
         </moz-toggle>
         <moz-toggle
-            data-l10n-id="aboutmobile-preference-mcfAddressbarontop"
+            data-l10n-id="aboutmobile-preference-mcfToolbarPositionOnTop"
             data-l10n-attrs="label, description"
-            data-preference="mcf.addressbarontop"
+            data-preference="mcf.toolbar.positionOnTop"
             data-preference-type="bool">
         </moz-toggle>
         <moz-toggle
-            data-l10n-id="aboutmobile-preference-mcfFullappmenu"
+            data-l10n-id="aboutmobile-preference-mcfAppmenuShowAllEntries"
             data-l10n-attrs="label, description"
-            data-preference="mcf.fullappmenu"
+            data-preference="mcf.appmenu.showAllEntries"
             data-preference-type="bool">
         </moz-toggle>
         <moz-toggle
-            data-l10n-id="aboutmobile-preference-mcfShowprotectionsicon"
+            data-l10n-id="aboutmobile-preference-mcfShowTrustButton"
             data-l10n-attrs="label, description"
-            data-preference="mcf.showprotectionsicon"
+            data-preference="mfc.urlbar.showTrustButton"
             data-preference-type="bool">
         </moz-toggle>
         <!-- TODO does not always work. why? -->
@@ -123,6 +123,12 @@
             data-l10n-id="aboutmobile-preferences-mediaVideocontrolsPictureInPictureEnabled"
             data-l10n-attrs="label"
             data-preference="media.videocontrols.picture-in-picture.enabled">
+        </moz-toggle>
+        <moz-toggle
+            data-l10n-id="aboutmobile-preference-mcfContextmenuShowInspector"
+            data-l10n-attrs="label"
+            data-preference="mcf.contextmenu.showInspector"
+            data-preference-type="bool">
         </moz-toggle>
     </moz-fieldset>
 </body>

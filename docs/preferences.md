@@ -166,3 +166,9 @@ mcf.toolbar.tabCounter.enabled
 * Value: false
 * Description: Small preview popups
 * Reason: Hide to avoid interference with/overlap of the urlbar with vertical tabs.
+
+### browser.newtabpage.activity-stream.nova.enabled
+
+* Value: false
+* Description: Revert to pre-Nova about:home page
+* Reason: Nova about:home is too wide, see [screenshots](https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox/-/merge_requests/131).

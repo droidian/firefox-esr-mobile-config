@@ -1,4 +1,4 @@
-/* Copyright 2022 plata, Anri Dellal
+/* Copyright 2026 plata, Anri Dellal, Peter Mack
  * SPDX-License-Identifier: MPL-2.0 */
 
 @-moz-document regexp("about:(preferences|addons|policies).*") {
@@ -8,10 +8,22 @@
 
     @media (max-width: 700px) {
         /* avoid that sidebar is too wide */
-        :root {
+        :root, :host(.anonymous-content-host) {
             --in-content-sidebar-width: 50px !important;
             --sidebar-width: 50px !important;
             --size-sidebar-narrow: 50px !important;
+        }
+
+        /* fix sidebar width by reducing margins on FF 151+ */
+        moz-page-nav[data-l10n-id="aboutaddons-sidebar"],
+        #categories,
+        #categories-nav {
+            margin-inline-start: 5px !important;
+        }
+
+        /* fix empty space at the top */
+        .page-nav-heading-wrapper {
+            margin-block-start: 10px !important;
         }
 
         /* reduce space around category icons */

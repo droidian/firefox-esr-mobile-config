@@ -12,11 +12,6 @@
         --tab-min-width-pref: calc(100vw - 71px) !important;
     }
 
-    /* Smaller tab width to allow for private browsing indicator */
-    :root[privatebrowsingmode="temporary"] #tabbrowser-tabs {
-        --tab-min-width-pref: calc(100vw - 91px) !important; /* width */
-    }
-
     #TabsToolbar {
         padding-right: 7px !important;
     }
@@ -25,16 +20,9 @@
         padding-left: 4px !important;
     }
 
-    :root[privatebrowsingmode="temporary"] #TabsToolbar {
-        padding-right: 1px !important;
-    }
-
-    :root[privatebrowsingmode="temporary"] #new-tab-button {
-        padding: 0 1px !important;
-    }
-
-    /* Fix private browsing mode for current Firefox >= 133 */
-    hbox.private-browsing-indicator-with-label label {
+    /* Hide private browsing indicator, it's re-added in
+     * private-browsing-indicator.css */
+    hbox.private-browsing-indicator-with-label {
         display: none;
     }
 
@@ -59,10 +47,6 @@
             --tab-max-width-pref: 150px !important;
         }
 
-        #private-browsing-indicator-with-label {
-            width: 22px;
-        }
-
         /* Optionally show close button on all tabs */
         @media -moz-pref("mcf.tabs.alwaysShowCloseButton") {
             .tab-close-button, .close-icon, #tabbrowser-tabs[closebuttons="activetab"][orient="horizontal"] &:not([selected]) {
@@ -72,11 +56,13 @@
     }
 
     @media not (-moz-pref("mcf.toolbar.positionOnTop")) {
-        /* Rotate the arrow on the "all tabs" button to point upwards, since the
-         * tabs and searchbar were moved to the bottom. */
+        /* Replace the arrow on the "all tabs" button to point upwards, when the
+         * tabs and searchbar are moved to the bottom. */
         @media not -moz-pref("mcf.toolbar.tabCounter.enabled") {
             #alltabs-button {
-                transform: rotate(180deg) !important;
+                #TabsToolbar & {
+                    list-style-image: url("chrome://global/skin/icons/arrow-up.svg") !important;
+                }
             }
         }
     }

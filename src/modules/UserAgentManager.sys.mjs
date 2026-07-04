@@ -14,9 +14,9 @@ export class UserAgentManager {
           `Mozilla/5.0 (Android 15; Mobile; rv:${APP_VERSION}) Gecko/${APP_VERSION} Firefox/${APP_VERSION}`;
     // Google version API: https://developer.chrome.com/docs/web-platform/versionhistory/reference
     const UA_CHROME_ANDROID =
-          "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.116 Mobile Safari/537.36";
+          "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.115 Mobile Safari/537.36";
     const UA_CHROME_CHROMEOS =
-          "Mozilla/5.0 (X11; CrOS aarch64 16503.74.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.7559.172 Safari/537.36";
+          "Mozilla/5.0 (X11; CrOS aarch64 16640.57.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.250 Safari/537.36";
     // Set default user agent
     PrefManager.defaultPref('general.useragent.override', UA_FIREFOX_DESKTOP);
 

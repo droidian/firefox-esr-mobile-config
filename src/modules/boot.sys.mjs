@@ -36,14 +36,17 @@ ChromeUtils.defineESModuleGetters(lazy, {
  * See docs/ for preferences description and reason we're modifying them.
  */
 function set_default_preferences() {
+    PrefManager.defaultPref('app.shield.optoutstudies.enabled', false);
     PrefManager.defaultPref('apz.allow_zooming', true);
     PrefManager.defaultPref('apz.allow_double_tap_zooming', true);
     PrefManager.defaultPref('browser.ai.control.default', 'blocked');
     PrefManager.defaultPref('browser.ai.control.translations', 'available');
     PrefManager.defaultPref('browser.download.animateNotifications', false);
+    PrefManager.defaultPref('browser.ipProtection.enabled', false);
     PrefManager.defaultPref('browser.ml.chat.enabled', false);
     PrefManager.defaultPref('browser.ml.chat.menu', false);
     PrefManager.defaultPref('browser.newtabpage.enabled', false);
+    PrefManager.defaultPref('browser.newtabpage.activity-stream.nova.enabled', false);
     PrefManager.defaultPref('browser.search.suggest.enabled', false);
     PrefManager.defaultPref('browser.tabs.hoverPreview.enabled', false);
     PrefManager.defaultPref('browser.tabs.inTitlebar', 1);
@@ -53,6 +56,8 @@ function set_default_preferences() {
     PrefManager.defaultPref('browser.urlbar.trimHttps', true);
     PrefManager.defaultPref('dom.maxtouchpoints.testing.value', 1);
     PrefManager.defaultPref('dom.w3c_touch_events.legacy_apis.enabled', true);
+    PrefManager.defaultPref('extensions.unifiedExtensions.button.always_visible', true);
+    PrefManager.defaultPref('media.videocontrols.picture-in-picture.enabled', false);
     PrefManager.defaultPref('media.webrtc.camera.allow-pipewire', true);
     PrefManager.defaultPref("screenshots.browser.component.enabled", false);
     PrefManager.defaultPref('sidebar.main.tools', 'aichat');

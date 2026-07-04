@@ -8,10 +8,10 @@ Forwarded: not-needed
  1 file changed, 57 insertions(+)
 
 diff --git a/src/modules/boot.sys.mjs b/src/modules/boot.sys.mjs
-index ffe3c2d..6840172 100644
+index db4f840..63422b5 100644
 --- a/src/modules/boot.sys.mjs
 +++ b/src/modules/boot.sys.mjs
-@@ -68,6 +68,63 @@ function set_default_preferences() {
+@@ -73,6 +73,63 @@ function set_default_preferences() {
      PrefManager.defaultPref('mcf.appmenu.showAllEntries', false);
      PrefManager.defaultPref('mcf.contextmenu.showInspector', false);
      PrefManager.defaultPref('mfc.urlbar.showTrustButton', false);

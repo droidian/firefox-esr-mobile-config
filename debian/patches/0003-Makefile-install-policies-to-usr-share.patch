@@ -11,7 +11,7 @@ install path to the `/usr/share` folder in order to fix this error.
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 4c6dc1b..df0bbee 100644
+index 29df567..e6f29b1 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -3,6 +3,7 @@
@@ -22,12 +22,12 @@ index 4c6dc1b..df0bbee 100644
  MCF_DIR := /usr/lib/mobile-config-firefox
  
  dummy:
-@@ -12,7 +13,7 @@ install:
- 	src/prepare_install.sh "$(FIREFOX_DIR)" "$(DESTDIR)"
+@@ -13,7 +14,7 @@ install:
+ 
  	# Firefox Policies
  	install -Dm644 src/policies.json \
 -		"$(DESTDIR)/$(FIREFOX_DIR)/distribution/policies.json"
 +		"$(DESTDIR)/$(FIREFOX_SHARE_DIR)/distribution/policies.json"
- 	# Mobile Config Firefox
+ 
+ 	# Firefox autoconfig
  	install -Dm644 src/mobile-config-prefs.js \
- 		"$(DESTDIR)/$(FIREFOX_DIR)/defaults/pref/mobile-config-prefs.js"

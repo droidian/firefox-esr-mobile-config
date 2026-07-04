@@ -1,8 +1,9 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@
+	dh $@ --without single-binary
 
 override_dh_auto_install:
-	dh_auto_install -- FIREFOX_DIR=/usr/lib/firefox-esr \
-	                   FIREFOX_SHARE_DIR=/usr/share/firefox-esr
+	dh_auto_install --destdir debian/tmp -- \
+	                FIREFOX_DIR=/usr/lib/firefox-esr \
+	                FIREFOX_SHARE_DIR=/usr/share/firefox-esr

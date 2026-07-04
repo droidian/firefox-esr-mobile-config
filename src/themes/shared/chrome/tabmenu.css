@@ -16,23 +16,17 @@
         }
     }
 
-    /* Smaller tab width to allow for private browsing indicator */
-    :root[privatebrowsingmode="temporary"] #tabbrowser-tabs {
-        --tab-min-width-pref: calc(100vw - 116px) !important; /* width */
-
-        :root[uidensity=touch] & {
-            --tab-min-width-pref: calc(100vw - 132px) !important;
-        }
+    /* Hide private browsing indicator, it's re-added in
+     * private-browsing-indicator.css */
+    hbox.private-browsing-indicator-with-label {
+        display: none !important;
     }
 
-    /* Fix private browsing mode for current Firefox >= 133 */
-    hbox.private-browsing-indicator-with-label label {
-        display: none;
-    }
-
-    /* Hide firefox-view tab, as none of the options in about:config hides it on FF 123 */
-    #firefox-view-button {
-        display: none;
+    /* Hide firefox-view tab, as none of the options in about:config hides it on FF 123,
+     * also hide spacer on the left */
+    #firefox-view-button,
+    #tabbrowser-tabs[orient="horizontal"]::before {
+        display: none !important;
     }
 
     /* Option to show multiple tabs in tab bar */
@@ -51,10 +45,6 @@
             width: 0px !important;
         }
 
-        #private-browsing-indicator-with-label {
-            width: 22px;
-        }
-
         /* Optionally show close button on all tabs */
         @media -moz-pref("mcf.tabs.alwaysShowCloseButton") {
             .tab-close-button, .close-icon, #tabbrowser-tabs[closebuttons="activetab"][orient="horizontal"] &:not([selected]) {
@@ -64,11 +54,13 @@
     }
 
     @media not (-moz-pref("mcf.toolbar.positionOnTop")) {
-        /* Rotate the arrow on the "all tabs" button to point upwards, since the
-         * tabs and searchbar were moved to the bottom. */
+        /* Replace the arrow on the "all tabs" button to point upwards, when the
+         * tabs and searchbar are moved to the bottom. */
         @media not -moz-pref("mcf.toolbar.tabCounter.enabled") {
             #alltabs-button {
-                transform: rotate(180deg) !important;
+                #TabsToolbar & {
+                    list-style-image: url("chrome://global/skin/icons/arrow-up.svg") !important;
+                }
             }
         }
     }

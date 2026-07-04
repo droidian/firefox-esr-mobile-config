@@ -1,4 +1,4 @@
-/* Copyright 2025 Oliver Smith, Peter Mack
+/* Copyright 2026 Oliver Smith, Jesús Higueras, Peter Mack
  * SPDX-License-Identifier: MPL-2.0 */
 
 /* Reduce minimum window width */
@@ -43,6 +43,15 @@
         }
     }
 
+    /* Show the forward button if the back button is disabled */
+    #back-button[disabled] ~ #forward-button {
+        display: flex !important;
+    }
+
+    #back-button[disabled] {
+        display: none !important;
+    }
+
     #urlbar {
         padding: 0px 5px;
     }
@@ -50,11 +59,21 @@
     /* Smaller font: show more of the URL */
     #urlbar-input {
         font-size: 9pt !important;
+        padding: 0px 4px !important;
+        /* Fade rightmost part with a gradient so it's clear that the URL is truncated */
+        mask-image: linear-gradient(to right, black 90%, transparent 100%);
     }
 
-    /* urlbar: Hide translate and picture-in-picture icon */
+    #urlbar[focused] #urlbar-input {
+        mask-image: none;
+    }
+
+    #identity-box {
+        margin: 0 !important;
+    }
+
+    /* urlbar: Hide translate and other icons */
     #urlbar #translations-button,
-    #urlbar #picture-in-picture-button,
     #urlbar #identity-box #identity-permission-box {
         display: none !important;
     }
@@ -109,6 +128,13 @@
         display: none;
     }
 
+    /* Hide label of the new Trust indicator (FF 149+), that shows a giant
+     * 'Not secure' when on http:// only pages. The icon itself is still
+     * visible. */
+    #trust-icon-container #trust-label {
+        display: none;
+    }
+
     /* Move urlbar results to cover the whole displayed website, instead of
      * being below the urlbar. */
     .urlbarView {
@@ -147,20 +173,38 @@
         --bookmarks-toolbar-overlapping-browser-height: 0 !important;
     }
 
-    /* Smaller private browsing indicator with vertical tabs */
-    @media -moz-pref("sidebar.verticalTabs") {
-        .private-browsing-indicator-icon {
-            width: 10px !important;
-            height: 10px !important;
-        }
-        .private-browsing-indicator-with-label {
-            align-items: unset !important;
-            margin-inline: 0 !important;
-        }
+    vbox.urlbarView {
+        position: fixed !important;
+        bottom: 82px !important;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px -8px 8px 3px !important;
+        left: 0 !important;
+        right: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        width: unset !important;
+        margin: 0 !important;
+    }
 
-        :root[privatebrowsingmode="temporary"] #PanelUI-menu-button {
-            padding-right: 0 !important;
-        }
+    vbox.urlbarView div#urlbar-results {
+        display: flex !important;
+        flex-direction: column-reverse;
+    }
+
+    /* Ensure search results are always shown at the very top */
+    vbox.urlbarView div#urlbar-results div[type="search"] {
+        order: 100 !important;
+    }
+
+    vbox.urlbarView div#urlbar-results div.urlbarView-row {
+        margin-top: 0 !important;
+    }
+
+    vbox.urlbarView div#urlbar-results div.urlbarView-row::before {
+        display: none !important;
+    }
+
+    hbox.search-panel-one-offs-header.search-panel-header {
+        margin-top: 1.5px !important;
     }
 }
 
@@ -170,4 +214,9 @@
  * regex. */
 button[id^="urlbar-engine-one-off-item-Amazon"] {
     display: none !important;
+}
+
+/* Ensure the URL bar's suggestions are always visible */
+#navigator-toolbox {
+    z-index: 9999 !important;
 }

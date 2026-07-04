@@ -25,7 +25,7 @@
         color: var(--toolbarbutton-icon-fill);
         opacity: var(--toolbarbutton-icon-fill-opacity);
         position: absolute;
-        bottom: var(--toolbarbutton-inner-padding);
+        bottom: var(--toolbarbutton-inner-padding, var(--toolbarbutton-padding-inner));
         left: 50%;
         transform: translateX(-50%);
         /* Tab Manager Menu button styling inspired by Firefox for Android */
@@ -69,7 +69,7 @@
         color: var(--toolbarbutton-icon-fill);
         opacity: var(--toolbarbutton-icon-fill-opacity);
         position: absolute;
-        bottom: var(--toolbarbutton-inner-padding);
+        bottom: var(--toolbarbutton-inner-padding, var(--toolbarbutton-padding-inner));
         left: 50%;
         transform: translateX(-50%);
         border: 1px solid var(--toolbarbutton-icon-fill);

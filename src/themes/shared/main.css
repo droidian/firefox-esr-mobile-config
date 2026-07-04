@@ -5,6 +5,7 @@
 @import "chrome://mobileconfigfirefox/content/themes/shared/chrome/browser.css";
 @import "chrome://mobileconfigfirefox/content/themes/shared/chrome/findbar.css";
 @import "chrome://mobileconfigfirefox/content/themes/shared/chrome/popups.css";
+@import "chrome://mobileconfigfirefox/content/themes/shared/chrome/private-browsing-indicator.css";
 @import "chrome://mobileconfigfirefox/content/themes/shared/chrome/root.css";
 @import "chrome://mobileconfigfirefox/content/themes/shared/chrome/sidebar.css";
 @import "chrome://mobileconfigfirefox/content/themes/shared/chrome/tabcounter.css";

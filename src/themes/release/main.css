@@ -2,4 +2,6 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 /* Chrome Stylesheets */
+@import "chrome://mobileconfigfirefox/content/themes/release/chrome/private-browsing-indicator.css";
 @import "chrome://mobileconfigfirefox/content/themes/release/chrome/tabmenu.css";
+@import "chrome://mobileconfigfirefox/content/themes/release/chrome/urlbar.css";

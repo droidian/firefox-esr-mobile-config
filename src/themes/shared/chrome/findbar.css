@@ -1,4 +1,4 @@
-/* Copyright 2022 Oliver Smith
+/* Copyright 2026 Oliver Smith, Peter Mack
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media (max-width: 700px) {
@@ -6,17 +6,17 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 150px !important;
+        height: 30px !important;
     }
-
     .findbar-textbox {
-        /* Overwrite fixed size, so the X on the right shows up */
         width: 100% !important;
     }
-
-    .findbar-container checkbox {
-        /* Add space around the buttons, looks nicer and makes it easier to hit
-         * them with the finger. */
-        padding: 10px 0px;
+    .findbar-highlight,
+    .findbar-case-sensitive,
+    .findbar-entire-word,
+    .findbar-find-status,
+    .findbar-label.found-matches,
+    .findbar-match-diacritics {
+        display: none !important;
     }
 }

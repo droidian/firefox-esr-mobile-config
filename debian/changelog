@@ -1,8 +1,15 @@
-firefox-esr-mobile-config (5.4.0-1) UNRELEASED; urgency=medium
+firefox-esr-mobile-config (5.4.0-1) unstable; urgency=medium
 
   * New upstream version
+  * d/patches: update for new upstream release
+  * d/control: bump Standards-Version (no change needed)
+  * debian: update for debhelper compat level 14.
+    Due to a behaviour change for single-binary packages, and the fact that
+    we call `dh_auto_install` explicitly in `d/rules`, we need to add a new
+    `debian/install` files and modify `d/rules` so it plays well with the
+    new behaviour.
 
- -- Arnaud Ferraris <aferraris@debian.org>  Sat, 04 Jul 2026 17:25:57 +0200
+ -- Arnaud Ferraris <aferraris@debian.org>  Sat, 04 Jul 2026 18:03:37 +0200
 
 firefox-esr-mobile-config (5.2.0-1) unstable; urgency=medium
 

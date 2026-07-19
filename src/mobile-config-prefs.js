@@ -8,3 +8,6 @@ pref('general.config.sandbox_enabled', false);
 
 // Enable touch density
 pref('browser.uidensity', 2);
+
+// Enable Pipewire cameras
+pref('media.webrtc.camera.allow-pipewire', true);

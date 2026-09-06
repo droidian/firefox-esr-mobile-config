@@ -85,6 +85,24 @@ function delete_old_mcf_files() {
     }
 }
 
+// Distributions install it below /usr/lib, but that path is not visible
+// inside the sandbox of a flatpak'd Firefox, where the files are shipped as
+// an extension mounted into /app/etc/firefox instead.
+const CHROME_MANIFEST_CANDIDATES = [
+    "/app/etc/firefox/mobile-config-firefox/chrome.manifest", // flatpak
+    "/usr/lib/mobile-config-firefox/chrome.manifest",         // distro packages
+];
+
+function find_chrome_manifest() {
+    for (const path of CHROME_MANIFEST_CANDIDATES) {
+        const f = new FileUtils.File(path);
+        if (f.exists())
+            return f;
+        log("chrome.manifest not found at: " + path);
+    }
+    return null;
+}
+
 chrome_dir_init();
 log_init();
 
@@ -99,12 +117,11 @@ try {
     //   have changed.
     Services.appinfo.invalidateCachesOnRestart();
 
-    // We're converting our path to a nsIFile so it can be consumed by
-    // autoRegister below.
-    const chromeManifest =
-        new FileUtils.File("/usr/lib/mobile-config-firefox/chrome.manifest");
+    // nsIFile of chrome.manifest, so it can be consumed by autoRegister below.
+    const chromeManifest = find_chrome_manifest();
 
-    if(chromeManifest.exists()){
+    if(chromeManifest){
+        log("Loading mobile-config-firefox from: " + chromeManifest.parent.path);
         Components.manager.QueryInterface(Ci.nsIComponentRegistrar)
             .autoRegister(chromeManifest);
         ChromeUtils.importESModule(

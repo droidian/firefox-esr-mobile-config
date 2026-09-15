@@ -36,6 +36,12 @@
         display: none;
     }
 
+    /* FF155+: Hide toolbarspring (spacer between #new-tab-button and
+     * #alltabs-button) */
+    #TabsToolbar toolbarspring {
+        display: none !important;
+    }
+
     /* Option to show multiple tabs in tab bar */
     @media not (-moz-pref("mcf.tabs.showFocusedTabOnly.enabled")) {
         /* Set small tabs width for small screens */

@@ -10,6 +10,10 @@
         padding-inline-start: 0 !important;
         margin-inline-start: 0 !important;
         --tab-min-width-pref: calc(100vw - 71px) !important;
+
+        :root[uidensity=touch] & {
+            --tab-min-width-pref: calc(100vw - 82px) !important;
+        }
     }
 
     #TabsToolbar {

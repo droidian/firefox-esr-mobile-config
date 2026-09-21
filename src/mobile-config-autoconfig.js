@@ -11,12 +11,21 @@ const { AppConstants } =
 const IS_ESM_READY = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
 const { FileUtils } =
     IS_ESM_READY
-      ? ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs")
-      : Cu.import("resource://gre/modules/FileUtils.jsm");
+        ? ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs")
+        : Cu.import("resource://gre/modules/FileUtils.jsm");
+const { XPCOMUtils } = ChromeUtils.importESModule(
+    "resource://gre/modules/XPCOMUtils.sys.mjs"
+);
+const lazy = {};
+XPCOMUtils.defineLazyServiceGetter(
+    lazy,
+    "gGIOService",
+    "@mozilla.org/gio-service;1",
+    Ci.nsIGIOService
+);
 
 var g_chromeDir; // nsIFile object for the "chrome" dir in user's profile
 var g_logFileStream;
-
 
 function write_line(ostream, line) {
     line = line + "\n"
@@ -85,21 +94,21 @@ function delete_old_mcf_files() {
     }
 }
 
-// Distributions install it below /usr/lib, but that path is not visible
-// inside the sandbox of a flatpak'd Firefox, where the files are shipped as
-// an extension mounted into /app/etc/firefox instead.
-const CHROME_MANIFEST_CANDIDATES = [
-    "/app/etc/firefox/mobile-config-firefox/chrome.manifest", // flatpak
-    "/usr/lib/mobile-config-firefox/chrome.manifest",         // distro packages
-];
-
+// Find mobile-config-firefox chrome manifest file based on the distribution
+// channel (distro package vs. Flatpak)
 function find_chrome_manifest() {
-    for (const path of CHROME_MANIFEST_CANDIDATES) {
-        const f = new FileUtils.File(path);
-        if (f.exists())
-            return f;
-        log("chrome.manifest not found at: " + path);
+
+    const path = (lazy.gGIOService?.isRunningUnderFlatpak)
+        ? "/app/etc/firefox/mobile-config-firefox/chrome.manifest"
+        : "/usr/lib/mobile-config-firefox/chrome.manifest";
+
+    const file = new FileUtils.File(path);
+
+    if (file.exists()) {
+        return file;
     }
+
+    log("chrome.manifest not found at: " + path);
     return null;
 }
 

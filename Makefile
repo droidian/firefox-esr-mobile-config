@@ -42,8 +42,8 @@ install:
 	cp -rv "src/themes/" "$(DESTDIR)/$(MCF_DIR)"
 
 ifneq ($(FLATPAK),1)
-	install -Dm644 org.postmarketos.mobile_config_firefox.metainfo.xml \
-		"$(DESTDIR)/usr/share/metainfo/org.postmarketos.mobile_config_firefox.metainfo.xml"
+	install -Dm644 eco.nura.mobile_config_firefox.metainfo.xml \
+		"$(DESTDIR)/usr/share/metainfo/eco.nura.mobile_config_firefox.metainfo.xml"
 endif
 
 uninstall:
@@ -53,7 +53,7 @@ uninstall:
 	rm -fv "$(DESTDIR)/$(FIREFOX_DIR)/mobile-config-autoconfig.js"
 	rm -rfv "$(DESTDIR)/$(MCF_DIR)"
 ifneq ($(FLATPAK),1)
-	rm -fv "$(DESTDIR)/usr/share/metainfo/org.postmarketos.mobile_config_firefox.metainfo.xml"
+	rm -fv "$(DESTDIR)/usr/share/metainfo/eco.nura.mobile_config_firefox.metainfo.xml"
 endif
 
 .PHONY: all clean install uninstall

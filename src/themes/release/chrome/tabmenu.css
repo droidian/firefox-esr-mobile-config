@@ -26,8 +26,9 @@
 
     /* Hide private browsing indicator, it's re-added in
      * private-browsing-indicator.css */
-    hbox.private-browsing-indicator-with-label {
-        display: none;
+    hbox.private-browsing-indicator-with-label, /* until FF156*/
+    toolbarbutton.private-browsing-indicator-button /* FF157+ */ {
+        display: none !important;
     }
 
     /* Remove empty space at start/end */

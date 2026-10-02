@@ -54,6 +54,7 @@ uninstall:
 	rm -rfv "$(DESTDIR)/$(MCF_DIR)"
 ifneq ($(FLATPAK),1)
 	rm -fv "$(DESTDIR)/usr/share/metainfo/eco.nura.mobile_config_firefox.metainfo.xml"
+	rm -fv "$(DESTDIR)/usr/share/metainfo/org.postmarketos.mobile_config_firefox.metainfo.xml"
 endif
 
 .PHONY: all clean install uninstall

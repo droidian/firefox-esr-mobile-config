@@ -2,7 +2,7 @@
 
 ## From package manager
 
-Alpine Linux (postmarketOS):
+Alpine Linux (Nura):
 ```
 apk add mobile-config-firefox
 apk add mobile-config-firefox-librewolf  # (only needed for librewolf)

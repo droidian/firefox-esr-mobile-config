@@ -21,8 +21,9 @@ export class StyleSheetManager {
 
             let channelStyleURI;
             if (AppConstants.IS_ESR) {
+                const esrVersion = parseInt(AppConstants.MOZ_APP_VERSION);
                 channelStyleURI = Services.io.newURI(
-                    `chrome://mobileconfigfirefox/content/themes/esr/main.css`
+                    `chrome://mobileconfigfirefox/content/themes/esr${esrVersion}/main.css`
                 );
             } else {
                 channelStyleURI = Services.io.newURI(

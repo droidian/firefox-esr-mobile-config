@@ -11,7 +11,7 @@ install path to the `/usr/share` folder in order to fix this error.
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 29df567..e6f29b1 100644
+index 2b4736b..1fdc171 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -3,6 +3,7 @@
@@ -21,13 +21,13 @@ index 29df567..e6f29b1 100644
 +FIREFOX_SHARE_DIR := /usr/share/firefox
  MCF_DIR := /usr/lib/mobile-config-firefox
  
- dummy:
-@@ -13,7 +14,7 @@ install:
+ FLATPAK :=
+@@ -16,7 +17,7 @@ MCF_DIR := $(FLATPAK_EXT_DIR)/mobile-config-firefox
+ POLICIES_DIR := $(FIREFOX_DIR)/policies
+ MODE := flatpak
+ else
+-POLICIES_DIR := $(FIREFOX_DIR)/distribution
++POLICIES_DIR := $(FIREFOX_SHARE_DIR)/distribution
+ MODE := native
+ endif
  
- 	# Firefox Policies
- 	install -Dm644 src/policies.json \
--		"$(DESTDIR)/$(FIREFOX_DIR)/distribution/policies.json"
-+		"$(DESTDIR)/$(FIREFOX_SHARE_DIR)/distribution/policies.json"
- 
- 	# Firefox autoconfig
- 	install -Dm644 src/mobile-config-prefs.js \

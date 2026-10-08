@@ -21,7 +21,7 @@ continuing on their own - if you have issues, report them there:
 * Droidian: [firefox-esr-mobile-config](https://github.com/droidian/firefox-esr-mobile-config)
 * FuriOS: [furios-firefox-tweaks](https://github.com/FuriLabs/furios-firefox-tweaks)
 \- includes [GNOME theming](https://github.com/rafaelmardojai/firefox-gnome-theme),
-requires `coreutils` package for sucessful install on Alpine/postmarketOS.
+requires `coreutils` package for sucessful install on Alpine/Nura.
 
 ## Similar efforts
 

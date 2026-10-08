@@ -1,0 +1,23 @@
+id: org.mozilla.firefox.systemconfig
+branch: stable
+
+runtime: org.mozilla.firefox
+runtime-version: stable
+sdk: org.freedesktop.Sdk//25.08
+
+build-extension: true
+separate-locales: false
+
+modules:
+  - name: mobile-config-firefox
+    buildsystem: simple
+    sources:
+      - type: dir
+        path: .
+        skip:
+            - .flatpak-builder
+            - .git
+            - build
+            - repo
+    build-commands:
+      - make FLATPAK=1 FLATPAK_EXT_DIR=/app/etc/firefox install

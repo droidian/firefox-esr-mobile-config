@@ -2,7 +2,7 @@
 
 ## From package manager
 
-Alpine Linux (postmarketOS):
+Alpine Linux (Nura):
 ```
 apk add mobile-config-firefox
 apk add mobile-config-firefox-librewolf  # (only needed for librewolf)
@@ -47,6 +47,30 @@ Testing with Beta and Nightly is possible via a Debian distrobox using
 The easiest way to add the mozilla repo is via
 [extrepo](https://manpages.debian.org/trixie/extrepo/extrepo.1p.en.html).
 
-Flatpak installs are
-[currently unsupported](https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox/-/issues/104),
-help welcome!
+### Flatpak installs
+
+#### Classic (mutable) distributions
+
+To install mobile-config-firefox for the [Firefox flatpak](https://flathub.org/apps/org.mozilla.firefox) installed for all users, simply run:
+
+```
+sudo make FLATPAK=1 install
+```
+
+For a "flatpak install --user" Firefox, override FLATPAK_EXT_DIR, e.g.:
+
+```
+make FLATPAK=1 FLATPAK_EXT_DIR=~/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/aarch64/stable install
+```
+
+#### Immutable distributions
+
+On immutable distributions, you will need to build and install mobile-config-firefox as a flatpak that extends the [Firefox flatpak](https://flathub.org/apps/org.mozilla.firefox).
+
+For that, you will need to have `org.flatpak.Builder` and `org.freedesktop.Sdk` (same release as specified in the [manifest](https://gitlab.postmarketos.org/postmarketOS/mobile-config-firefox/-/raw/main/org.mozilla.firefox.systemconfig.yml) installed and run
+
+```
+flatpak run org.flatpak.Builder --user --install --install-deps-from=flathub --force-clean --repo=repo build org.mozilla.firefox.systemconfig.yml
+```
+
+inside the mobile-config-firefox folder. The manifest architected in such a way, that it builds what ever is in the folder at the time of build, so you should be able to hack on mobile-config-firefox on immutable distributions just fine.

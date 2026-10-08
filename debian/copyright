@@ -78,13 +78,17 @@ Copyright: 2021-2022 plata
            2021-2022 Anri Dellal
 License: MPL-2.0
 
-Files: src/themes/esr/main.css
+Files: src/themes/esr140/main.css
        src/themes/release/main.css
        src/themes/shared/main.css
 Copyright: 2025 Danny Colin
 License: MPL-2.0
 
-Files: org.postmarketos.mobile_config_firefox.metainfo.xml
+Files: src/themes/esr153/main.css
+Copyright: 2026 Peter Mack
+License: MPL-2.0
+
+Files: eco.nura.mobile_config_firefox.metainfo.xml
 Copyright: 2022 plata
 License: CC0-1.0
 

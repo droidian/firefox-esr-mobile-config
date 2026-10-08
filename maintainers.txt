@@ -1,4 +1,4 @@
-# https://postmarketos.org/maintainers.txt
+# https://nura.eco/maintainers.txt
 1peter10
 dannycolin
 ollieparanoid

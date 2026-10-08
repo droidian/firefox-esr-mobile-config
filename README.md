@@ -1,7 +1,7 @@
 # mobile-config-firefox
 
 Find the documentation at
-[docs.postmarketos.org/mobile-config-firefox](https://docs.postmarketos.org/mobile-config-firefox)
+[docs.nura.eco/mobile-config-firefox](https://docs.nura.eco/mobile-config-firefox)
 or `docs/` in this repository.
 
 The upstream repository is

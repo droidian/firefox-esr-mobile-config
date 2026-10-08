@@ -97,7 +97,7 @@
     }
 
 
-    /* Fixing invisible URL bar on FF 133+
+    /* Fixing invisible URL bar on FF 133-156
      * Making the active URL bar wider for better text input and
      * a wider popout */
     #urlbar[breakout][breakout-extend] {
@@ -153,6 +153,66 @@
     @media not (-moz-pref("mcf.toolbar.positionOnTop")) {
         .urlbarView {
             inset: 0px 0px 84px 0px;
+        }
+    }
+
+    /* FF 157+: the results are a popover now */
+    .urlbarView:popover-open {
+        margin: var(--urlbarView-margin-block) var(--urlbarView-margin-inline) !important;
+        width: auto !important;
+        overflow: clip !important;
+    }
+
+    /* Firefox sizes the input's half of the surface as if #urlbar had no
+     * padding; take the 5px from the #urlbar rule above back out. */
+    #urlbar[popover-open] > .urlbar-background {
+        inset-inline: calc(5px - var(--urlbar-background-overhang-open)
+            - var(--urlbar-input-growth-open-inline)) !important;
+    }
+
+    /* Toolbar at the bottom: open above the input, surface upside down. */
+    @media not (-moz-pref("mcf.toolbar.positionOnTop")) {
+        .urlbarView:popover-open {
+            position-area: block-start center !important;
+        }
+        #urlbar[popover-open] > .urlbar-background {
+            inset-block: calc(-1 * var(--urlbar-joint-background-overlap))
+                calc(-1 * (var(--urlbar-background-overhang-open) + var(--urlbar-input-growth-open-block))) !important;
+            border-radius: 0 0 var(--urlbar-background-border-top-radius-open)
+                var(--urlbar-background-border-top-radius-open) !important;
+            clip-path: inset(calc(var(--urlbar-joint-background-overlap) - var(--urlbar-input-growth-open-block))
+                calc(-1 * var(--urlbar-joint-background-shadow-margin))
+                calc(-1 * var(--urlbar-joint-background-shadow-margin))) !important;
+        }
+
+        #urlbar > .urlbarView > .urlbarView-background {
+            inset-block: calc(-1 * var(--urlbarView-joint-background-outset-block))
+                calc(-1 * var(--urlbarView-margin-block) - var(--urlbar-joint-background-overlap)) !important;
+            border-radius: var(--urlbar-background-border-radius)
+                var(--urlbar-background-border-radius) 0 0 !important;
+            clip-path: inset(calc(-1 * var(--urlbar-joint-background-shadow-margin))
+                calc(-1 * var(--urlbar-joint-background-shadow-margin))
+                var(--urlbar-joint-background-overlap)) !important;
+        }
+    }
+
+    /* FF 157+: widen the focused urlbar by hiding the rest of the nav-bar,
+     * except back (or forward in its place) and the app menu. */
+    #nav-bar:has(#urlbar[focused]:not([breakout])) :is(
+        #nav-bar-customization-target > :not(#urlbar-container, #back-button,
+            #back-button[disabled] ~ #forward-button),
+        #nav-bar-customization-target ~ :not(#PanelUI-button)) {
+        display: none !important;
+    }
+
+    /* Fix suggestions width for vertical tabs (FF <= 156) */
+    @media -moz-pref("sidebar.verticalTabs") {
+        #urlbar[breakout] > .urlbarView {
+            left: 10vw !important;
+        }
+
+        #urlbar[breakout] .urlbarView-body-inner {
+            width: 80vw !important;
         }
     }
 

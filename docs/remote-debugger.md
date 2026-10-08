@@ -16,7 +16,7 @@ a website.
     listens on all interfaces. Otherwise you'll need something like an SSH
     tunnel.
   * Close firefox
-* Connect to your phone via [SSH](https://wiki.postmarketos.org/wiki/SSH)
+* Connect to your phone via [SSH](https://wiki.nura.eco/wiki/SSH)
   * Set up environment variables properly, so you can start programs (one lazy
     way to do it, is `tmux` on your phone in the terminal, then `tmux a` in
     SSH)
@@ -27,8 +27,8 @@ a website.
     through USB Network)
   * Press the connect button on the left
   * If it does not work, check if a firewall on your phone is blocking the port
-    (i.e. [nftables](https://wiki.postmarketos.org/wiki/Nftables) in
-    postmarketOS).
+    (i.e. [nftables](https://wiki.nura.eco/wiki/Nftables) in
+    Nura).
 * On your phone
   * Confirm the connection on your phone's screen
     * If the button is not visible on the screen, try switching to a terminal

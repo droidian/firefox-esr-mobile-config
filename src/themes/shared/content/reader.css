@@ -26,12 +26,21 @@
             width: unset !important;
         }
 
-        .dropdown li {
+        .dropdown > li:not(.dropdown-popup) {
             display: inline !important;
         }
 
         .dropdown {
             display: inline;
+        }
+
+        .dropdown .dropdown-popup {
+            position: fixed !important;
+            top: 74px !important;
+            inset-inline: 8px !important;
+            width: auto !important;
+            max-height: calc(100vh - 82px) !important;
+            overflow-y: auto !important;
         }
 
         body {

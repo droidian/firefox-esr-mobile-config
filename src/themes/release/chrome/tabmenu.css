@@ -10,6 +10,10 @@
         padding-inline-start: 0 !important;
         margin-inline-start: 0 !important;
         --tab-min-width-pref: calc(100vw - 71px) !important;
+
+        :root[uidensity=touch] & {
+            --tab-min-width-pref: calc(100vw - 82px) !important;
+        }
     }
 
     #TabsToolbar {
@@ -22,8 +26,9 @@
 
     /* Hide private browsing indicator, it's re-added in
      * private-browsing-indicator.css */
-    hbox.private-browsing-indicator-with-label {
-        display: none;
+    hbox.private-browsing-indicator-with-label, /* until FF156*/
+    toolbarbutton.private-browsing-indicator-button /* FF157+ */ {
+        display: none !important;
     }
 
     /* Remove empty space at start/end */
@@ -34,6 +39,12 @@
     /* Hide firefox-view tab, as none of the options in about:config hides it on FF 123 */
     #firefox-view-button {
         display: none;
+    }
+
+    /* FF155+: Hide toolbarspring (spacer between #new-tab-button and
+     * #alltabs-button) */
+    #TabsToolbar toolbarspring {
+        display: none !important;
     }
 
     /* Option to show multiple tabs in tab bar */

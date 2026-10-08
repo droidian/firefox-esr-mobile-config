@@ -104,6 +104,13 @@
     display: none !important
 }
 
+/* Hide 'View All Tabs' in allTabsMenu and the preceding
+ * toolbarseparator */
+toolbarseparator:has(+ #allTabsMenu-viewAllTabs),
+#allTabsMenu-viewAllTabs {
+    display: none !important
+}
+
 /* Hide by default, but optionally unhide Inspector */
 @media not (-moz-pref("mcf.contextmenu.showInspector")) {
     #context-inspect,

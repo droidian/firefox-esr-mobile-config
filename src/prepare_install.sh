@@ -1,6 +1,20 @@
 #!/bin/sh
 FIREFOX_DIR="$1"
 DESTDIR="$2"
+MODE="$3"
+
+if [ "$MODE" = "flatpak" ]; then
+	echo "Installing into the Firefox flatpak's systemconfig extension dir:"
+	echo "  $FIREFOX_DIR"
+	if command -v flatpak >/dev/null 2>&1 \
+		&& ! flatpak info org.mozilla.firefox >/dev/null 2>&1; then
+		echo
+		echo "WARNING: the org.mozilla.firefox flatpak does not seem to be"
+		echo "installed (for this user)."
+		echo
+	fi
+	exit 0
+fi
 
 if ! [ -d "$FIREFOX_DIR"/browser ]; then
 	if [ -d "$FIREFOX_DIR"-esr/browser ]; then

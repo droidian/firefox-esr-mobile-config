@@ -11,12 +11,21 @@ const { AppConstants } =
 const IS_ESM_READY = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
 const { FileUtils } =
     IS_ESM_READY
-      ? ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs")
-      : Cu.import("resource://gre/modules/FileUtils.jsm");
+        ? ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs")
+        : Cu.import("resource://gre/modules/FileUtils.jsm");
+const { XPCOMUtils } = ChromeUtils.importESModule(
+    "resource://gre/modules/XPCOMUtils.sys.mjs"
+);
+const lazy = {};
+XPCOMUtils.defineLazyServiceGetter(
+    lazy,
+    "gGIOService",
+    "@mozilla.org/gio-service;1",
+    Ci.nsIGIOService
+);
 
 var g_chromeDir; // nsIFile object for the "chrome" dir in user's profile
 var g_logFileStream;
-
 
 function write_line(ostream, line) {
     line = line + "\n"
@@ -85,6 +94,24 @@ function delete_old_mcf_files() {
     }
 }
 
+// Find mobile-config-firefox chrome manifest file based on the distribution
+// channel (distro package vs. Flatpak)
+function find_chrome_manifest() {
+
+    const path = (lazy.gGIOService?.isRunningUnderFlatpak)
+        ? "/app/etc/firefox/mobile-config-firefox/chrome.manifest"
+        : "/usr/lib/mobile-config-firefox/chrome.manifest";
+
+    const file = new FileUtils.File(path);
+
+    if (file.exists()) {
+        return file;
+    }
+
+    log("chrome.manifest not found at: " + path);
+    return null;
+}
+
 chrome_dir_init();
 log_init();
 
@@ -99,12 +126,11 @@ try {
     //   have changed.
     Services.appinfo.invalidateCachesOnRestart();
 
-    // We're converting our path to a nsIFile so it can be consumed by
-    // autoRegister below.
-    const chromeManifest =
-        new FileUtils.File("/usr/lib/mobile-config-firefox/chrome.manifest");
+    // nsIFile of chrome.manifest, so it can be consumed by autoRegister below.
+    const chromeManifest = find_chrome_manifest();
 
-    if(chromeManifest.exists()){
+    if(chromeManifest){
+        log("Loading mobile-config-firefox from: " + chromeManifest.parent.path);
         Components.manager.QueryInterface(Ci.nsIComponentRegistrar)
             .autoRegister(chromeManifest);
         ChromeUtils.importESModule(
